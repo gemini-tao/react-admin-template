@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'antd'
 import './App.css';
 
+@test
 class App extends Component {
   render() {
     return (
@@ -12,5 +13,11 @@ class App extends Component {
     );
   }
 }
+
+function test (target) {
+  target.a = 1
+}
+
+console.log(App.a)
 
 export default App;

@@ -20,6 +20,12 @@ module.exports = function override(config, env) {
     config,
   );
 
+  // 装饰器
+  config = injectBabelPlugin(
+    ["@babel/plugin-proposal-decorators", { "legacy": true }], // babel 7.0采用这个插件
+    config,
+  );
+
   // FIXME:
   // 给@ant-design/icons设置别名，实现svg字体手动按需加载，等待官方提供按需加载方案
   config = rewireAliases.aliasesOptions({
