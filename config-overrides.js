@@ -11,8 +11,8 @@ function overrideEslintOptions(options) {
 }
 
 module.exports = function override(config, env) {
-  // 设置eslint规则
-  config = rewireEslint(config, env, overrideEslintOptions);
+   // 设置eslint规则
+   config = rewireEslint(config, env, overrideEslintOptions); 
 
   // 按需加载antd组件
   config = injectBabelPlugin(
@@ -20,7 +20,7 @@ module.exports = function override(config, env) {
     config,
   );
 
-  // 装饰器
+  // 启用装饰器
   config = injectBabelPlugin(
     ["@babel/plugin-proposal-decorators", { "legacy": true }], // babel 7.0采用这个插件
     config,

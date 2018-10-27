@@ -1,6 +1,6 @@
 /*
- * @Author: lifan 
- * @Date: 2018-10-26 14:51:40 
+ * @Author: lifan
+ * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
  * @Last Modified time: 2018-10-26 15:01:37
  */
@@ -12,7 +12,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, global.document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
