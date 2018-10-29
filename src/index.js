@@ -2,14 +2,14 @@
  * @Author: lifan
  * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-29 13:41:40
+ * @Last Modified time: 2018-10-29 16:55:25
  */
 import '@babel/polyfill';
 import 'react-app-polyfill/ie9';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App, { a } from '@/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -18,3 +18,5 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+console.log(a);

@@ -14,11 +14,16 @@ class App extends Component {
     const { a } = this.state;
     return (
       <div>
-        <Button type="primary" icon="step-backward" test={a}>hello</Button>
+        <Button type="primary" icon="step-backward" test={a}>
+          hello
+        </Button>
         {/* <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" /> */}
       </div>
     );
   }
 }
+
+const a = 1;
+export { a };
 
 export default App;

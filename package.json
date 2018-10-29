@@ -33,6 +33,7 @@
     "babel-plugin-import": "^1.10.0",
     "customize-cra": "^0.1.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-compat": "^2.6.2",
     "node-sass": "^4.9.4",
     "react-app-rewire-aliases": "^0.2.0",
     "react-app-rewire-eslint": "^0.2.3",
