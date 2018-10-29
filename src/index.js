@@ -12,6 +12,7 @@ import './index.css';
 import App, { a } from '@/App';
 import * as serviceWorker from './serviceWorker';
 
+/* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
@@ -20,3 +21,10 @@ ReactDOM.render(<App />, document.getElementById('root'));
 serviceWorker.unregister();
 
 console.log(a);
+
+fetch('www.baidu.com');
+const aa = new Promise((reslove) => {
+  reslove();
+});
+
+console.log(aa);
