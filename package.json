@@ -23,6 +23,14 @@
     "lint": "eslint --ext .js src",
     "lint:fix": "eslint --ext .js src --fix"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["yarn lint", "git add"]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -38,6 +46,8 @@
     "customize-cra": "^0.1.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-compat": "^2.6.2",
+    "husky": "^1.1.2",
+    "lint-staged": "^8.0.2",
     "node-sass": "^4.9.4",
     "react-app-rewire-aliases": "^0.2.0",
     "react-app-rewire-eslint": "^0.2.3",
