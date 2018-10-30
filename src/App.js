@@ -2,10 +2,10 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:44
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-30 20:33:39
+ * @Last Modified time: 2018-10-30 21:18:30
  */
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
 import { ConnectedRouter, goBack } from 'connected-react-router';
@@ -16,9 +16,8 @@ const mapState = state => ({
   count: state.count,
 });
 
-const mapDispatch = ({ count: { increment, incrementAsync } }) => ({
-  increment: () => increment(1),
-  incrementAsync: () => incrementAsync(1),
+const mapDispatch = ({ count: { goTo } }) => ({
+  goTo: () => goTo(),
 });
 
 @connect(
@@ -26,10 +25,9 @@ const mapDispatch = ({ count: { increment, incrementAsync } }) => ({
   mapDispatch,
 )
 class App extends Component {
-  // static propTypes = {
-  //   increment: PropTypes.func.isRequired,
-  //   incrementAsync: PropTypes.func.isRequired,
-  // }
+  static propTypes = {
+    goTo: PropTypes.func.isRequired,
+  }
 
   constructor(props) {
     super(props);
@@ -39,8 +37,8 @@ class App extends Component {
   }
 
   goTo = () => {
-    console.log(1);
-    history.push('test');
+    const { goTo } = this.props;
+    goTo();
   }
 
   render() {
