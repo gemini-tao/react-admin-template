@@ -2,12 +2,15 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:44
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-30 16:22:18
+ * @Last Modified time: 2018-10-30 20:33:39
  */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
+import { ConnectedRouter, goBack } from 'connected-react-router';
+import { Route, Switch } from 'react-router-dom';
+import history from './router/history';
 
 const mapState = state => ({
   count: state.count,
@@ -23,10 +26,10 @@ const mapDispatch = ({ count: { increment, incrementAsync } }) => ({
   mapDispatch,
 )
 class App extends Component {
-  static propTypes = {
-    increment: PropTypes.func.isRequired,
-    incrementAsync: PropTypes.func.isRequired,
-  }
+  // static propTypes = {
+  //   increment: PropTypes.func.isRequired,
+  //   incrementAsync: PropTypes.func.isRequired,
+  // }
 
   constructor(props) {
     super(props);
@@ -35,18 +38,28 @@ class App extends Component {
     };
   }
 
+  goTo = () => {
+    console.log(1);
+    history.push('test');
+  }
+
   render() {
     const { a } = this.state;
-    const { increment, incrementAsync } = this.props;
     return (
       <div>
-        <Button type="primary" icon="step-backward" test={a} onClick={increment}>
-          add
-        </Button>
-        <Button type="primary" icon="step-backward" test={a} onClick={incrementAsync}>
-          add async
-        </Button>
-        {/* <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" /> */}
+        <div>
+          <Button type="primary" onClick={this.goTo}>go</Button>
+          <Button type="primary" onClick={() => goBack()}>back</Button>
+        </div>
+        <ConnectedRouter history={history}>
+          <div a={a}>
+            <Switch>
+              <Route exact path="/" render={() => (<div>Match</div>)} />
+              <Route exact path="/test" render={() => (<div>test</div>)} />
+              <Route render={() => (<div>Miss</div>)} />
+            </Switch>
+          </div>
+        </ConnectedRouter>
       </div>
     );
   }
