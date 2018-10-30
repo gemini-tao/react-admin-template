@@ -2,14 +2,14 @@
  * @Author: lifan
  * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-29 16:55:25
+ * @Last Modified time: 2018-10-30 10:40:51
  */
 import '@babel/polyfill';
 import 'react-app-polyfill/ie9';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App, { a } from '@/App';
+import App from '@/App';
 import * as serviceWorker from './serviceWorker';
 
 /* eslint-disable react/jsx-filename-extension */
@@ -19,12 +19,3 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-console.log(a);
-
-fetch('www.baidu.com');
-const aa = new Promise((reslove) => {
-  reslove();
-});
-
-console.log(aa);

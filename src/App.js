@@ -23,7 +23,4 @@ class App extends Component {
   }
 }
 
-const a = 1;
-export { a };
-
 export default App;
