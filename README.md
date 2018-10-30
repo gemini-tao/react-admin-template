@@ -14,7 +14,7 @@
   git clone https://gitee.com/sinoso/mpis.git
   ```
 
-- vs code安装``editorconfig``、``prettier``、``Path Intellisense``、``Npm Intellisense``插件
+- vs code安装``editorconfig``、``Path Intellisense``、``Npm Intellisense``、``stylelint``插件
 
 - 安装开发依赖
 

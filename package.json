@@ -21,7 +21,8 @@
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "lint": "eslint --ext .js src",
-    "lint:fix": "eslint --ext .js src --fix"
+    "lint:fix": "eslint --ext .js src --fix",
+    "lint:style": "stylelint \"src/**/*.scss\" --syntax scss"
   },
   "husky": {
     "hooks": {
@@ -29,7 +30,13 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": ["yarn lint:fix", "git add"]
+    "src/**/*.js": [
+      "yarn lint:fix",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "yarn lint:style"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +59,9 @@
     "react-app-rewire-aliases": "^0.2.0",
     "react-app-rewire-eslint": "^0.2.3",
     "react-app-rewired": "^1.6.2",
+    "stylelint": "^9.7.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
     "webpack-bundle-analyzer": "^3.0.3"
   }
 }

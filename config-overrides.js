@@ -4,6 +4,7 @@ const { injectBabelPlugin } = require('react-app-rewired');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const rewireAliases = require('react-app-rewire-aliases');
 const rewireEslint = require('react-app-rewire-eslint');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const path = require('path');
 
 function overrideEslintOptions(options) {
@@ -33,6 +34,18 @@ module.exports = function override(config, env) {
     "@ant-design/icons/lib/dist$": path.resolve(__dirname, "./src/icons.js"),
     "@":  path.resolve(__dirname, "./src")
   })(config, env);
+
+  // 添加stylelint插件
+  config.plugins.push(
+    new StyleLintPlugin({
+      context: "src",
+      configFile: path.resolve(__dirname, './.stylelintrc.json'),
+      files: '**/*.scss',
+      failOnError: false,
+      quiet: true,
+      syntax: 'scss'
+    })
+  )
 
   // 生产模式分析bundle
   if (env === 'production') {
