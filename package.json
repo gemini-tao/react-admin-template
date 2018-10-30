@@ -35,8 +35,7 @@
       "git add"
     ],
     "src/**/*.scss": [
-      "yarn lint:style",
-      "git add"
+      "yarn lint:style"
     ]
   },
   "eslintConfig": {
