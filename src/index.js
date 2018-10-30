@@ -2,18 +2,26 @@
  * @Author: lifan
  * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-30 10:40:51
+ * @Last Modified time: 2018-10-30 16:19:27
  */
 import '@babel/polyfill';
 import 'react-app-polyfill/ie9';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from '@/App';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-/* eslint-disable react/jsx-filename-extension */
-ReactDOM.render(<App />, document.getElementById('root'));
+import 'normalize.css';
+import './assets/scss/index.scss';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

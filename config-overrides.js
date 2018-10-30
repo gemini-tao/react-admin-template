@@ -31,7 +31,7 @@ module.exports = function override(config, env) {
   // FIXME:
   // 给@ant-design/icons设置别名，实现svg字体手动按需加载，等待官方提供按需加载方案
   config = rewireAliases.aliasesOptions({
-    "@ant-design/icons/lib/dist$": path.resolve(__dirname, "./src/icons.js"),
+    "@ant-design/icons/lib/dist$": path.resolve(__dirname, "./src/components/icons.js"),
     "@":  path.resolve(__dirname, "./src")
   })(config, env);
 
