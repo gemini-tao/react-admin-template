@@ -43,7 +43,8 @@ module.exports = function override(config, env) {
       files: '**/*.scss',
       failOnError: false,
       quiet: true,
-      syntax: 'scss'
+      syntax: 'scss',
+      fix: false
     })
   )
 

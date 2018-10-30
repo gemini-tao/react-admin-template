@@ -22,7 +22,7 @@
     "eject": "react-app-rewired eject",
     "lint": "eslint --ext .js src",
     "lint:fix": "eslint --ext .js src --fix",
-    "lint:style": "stylelint \"src/**/*.scss\" --syntax scss"
+    "lint:style": "stylelint \"src/**/*.scss\" --syntax scss --fix"
   },
   "husky": {
     "hooks": {
