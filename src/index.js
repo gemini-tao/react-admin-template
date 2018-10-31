@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-31 12:05:00
+ * @Last Modified time: 2018-10-31 22:38:04
  */
 
 /* eslint-disable import/no-extraneous-dependencies */
@@ -14,7 +14,7 @@ import { Provider } from 'react-redux';
 import { getPersistor } from '@rematch/persist';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import store from './store';
-import App from './App';
+import RootRouter from './router';
 import * as serviceWorker from './utils/serviceWorker';
 import 'normalize.css';
 import './assets/scss/index.scss';
@@ -24,7 +24,7 @@ const persistor = getPersistor();
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <App />
+      <RootRouter />
     </PersistGate>
   </Provider>,
   document.getElementById('root'),

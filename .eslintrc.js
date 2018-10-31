@@ -10,6 +10,7 @@ module.exports = {
   rules: {
     'import/no-unresolved': [2, { ignore: ['^@/'] }],
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
+    'max-len': [2, { code: 150 }]
   },
   settings: {
     polyfills: ['fetch', 'promises', 'url'],
