@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:44
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-31 11:01:35
+ * @Last Modified time: 2018-10-31 16:40:17
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -11,14 +11,17 @@ import { Button } from 'antd';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router-dom';
 import history from './router/history';
+import { getSelector } from './store';
 
 const mapState = state => ({
   count: state.count,
-  // loading: state.
+  loading: state.loading.effects.count.incrementAsync,
+  total: getSelector('cart', 'total'),
 });
 
 const mapDispatch = dispatch => ({
   goTo: () => dispatch.count.goTo(),
+  add: () => dispatch.cart.add(),
   asyncIncrement: () => dispatch.count.incrementAsync(),
 });
 
@@ -30,6 +33,9 @@ class App extends Component {
   static propTypes = {
     goTo: PropTypes.func.isRequired,
     asyncIncrement: PropTypes.func.isRequired,
+    add: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
+    total: PropTypes.number.isRequired,
   }
 
   constructor(props) {
@@ -45,18 +51,22 @@ class App extends Component {
   }
 
   add = () => {
-    const { asyncIncrement } = this.props;
+    const { asyncIncrement, add } = this.props;
     asyncIncrement();
+    add();
   }
 
   render() {
     const { a } = this.state;
+    const { loading, total } = this.props;
+
     return (
       <div>
         <div>
           <Button type="primary" onClick={this.goTo}>go</Button>
-          <Button type="primary" onClick={this.add}>add</Button>
+          <Button type="primary" onClick={this.add} loading={loading}>add</Button>
         </div>
+        <h1>{total}</h1>
         <ConnectedRouter history={history}>
           <div a={a}>
             <Switch>

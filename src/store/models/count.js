@@ -2,13 +2,13 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:37
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-31 10:23:47
+ * @Last Modified time: 2018-10-31 16:39:07
  */
 import { push } from 'connected-react-router';
 
-const count = {
+const model = {
+  name: 'count',
   state: 0, // initial state
-
   reducers: {
     // handle state changes with pure functions
     increment(state) {
@@ -28,6 +28,12 @@ const count = {
       dispatch(push('/test'));
     },
   }),
+
+  selectors: {
+    sum() {
+      return rootState => rootState.count;
+    },
+  },
 };
 
-export default count;
+export default model;
