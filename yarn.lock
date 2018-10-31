@@ -827,6 +827,31 @@
   dependencies:
     redux "4.0.0"
 
+"@rematch/loading@^1.1.2":
+  version "1.1.2"
+  resolved "http://registry.npm.taobao.org/@rematch/loading/download/@rematch/loading-1.1.2.tgz#7c43d2c1f65b636d43c0d510bd170fb70f35fc15"
+  integrity sha1-fEPSwfZbY21DwNUQvRcPtw81/BU=
+
+"@rematch/persist@^1.1.5":
+  version "1.1.5"
+  resolved "http://registry.npm.taobao.org/@rematch/persist/download/@rematch/persist-1.1.5.tgz#688977993ef7d81d0b73f79a639df7ceff33d3ec"
+  integrity sha1-aIl3mT732B0Lc/eaY533zv8z0+w=
+  dependencies:
+    redux-persist "^5.10.0"
+    rollup-plugin-typescript2 "^0.17.1"
+
+"@rematch/select@^2.0.3":
+  version "2.0.3"
+  resolved "http://registry.npm.taobao.org/@rematch/select/download/@rematch/select-2.0.3.tgz#45f260baf26ee66fa10ec18e3d1964321e50e712"
+  integrity sha1-RfJguvJu5m+hDsGOPRlkMh5Q5xI=
+  dependencies:
+    reselect "^3.0.1"
+
+"@rematch/updated@^1.0.1":
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/@rematch/updated/download/@rematch/updated-1.0.1.tgz#3a5e53f50e0dc193ed165beecb9adf514c1f6285"
+  integrity sha1-Ol5T9Q4NwZPtFlvuy5rfUUwfYoU=
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "http://registry.npm.taobao.org/@samverschueren/stream-to-observable/download/@samverschueren/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -3791,6 +3816,11 @@ estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1, estraverse@^4.2.0:
   version "4.2.0"
   resolved "http://registry.npm.taobao.org/estraverse/download/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
   integrity sha1-De4/7TH81GlhjOc0IJn8GvoL2xM=
+
+estree-walker@^0.5.2:
+  version "0.5.2"
+  resolved "http://registry.npm.taobao.org/estree-walker/download/estree-walker-0.5.2.tgz#d3850be7529c9580d815600b53126515e146dd39"
+  integrity sha1-04UL51KclYDYFWALUxJlFeFG3Tk=
 
 esutils@^2.0.0, esutils@^2.0.2:
   version "2.0.2"
@@ -9723,6 +9753,11 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
+redux-persist@^5.10.0:
+  version "5.10.0"
+  resolved "http://registry.npm.taobao.org/redux-persist/download/redux-persist-5.10.0.tgz#5d8d802c5571e55924efc1c3a9b23575283be62b"
+  integrity sha1-XY2ALFVx5Vkk78HDqbI1dSg75is=
+
 redux-seamless-immutable@^0.4.0:
   version "0.4.0"
   resolved "http://registry.npm.taobao.org/redux-seamless-immutable/download/redux-seamless-immutable-0.4.0.tgz#b50f8680ecc5ef04021551267f78fa1ffd3cf985"
@@ -9996,6 +10031,11 @@ requires-port@^1.0.0:
   resolved "http://registry.npm.taobao.org/requires-port/download/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
+reselect@^3.0.1:
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/reselect/download/reselect-3.0.1.tgz#efdaa98ea7451324d092b2b2163a6a1d7a9a2147"
+  integrity sha1-79qpjqdFEyTQkrKyFjpqHXqaIUc=
+
 resize-observer-polyfill@^1.5.0:
   version "1.5.0"
   resolved "http://registry.npm.taobao.org/resize-observer-polyfill/download/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
@@ -10106,6 +10146,24 @@ rmc-feedback@^2.0.0:
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.5"
+
+rollup-plugin-typescript2@^0.17.1:
+  version "0.17.2"
+  resolved "http://registry.npm.taobao.org/rollup-plugin-typescript2/download/rollup-plugin-typescript2-0.17.2.tgz#7d18a94b74993307ec69b7c2f571c12b51561a14"
+  integrity sha1-fRipS3SZMwfsabfC9XHBK1FWGhQ=
+  dependencies:
+    fs-extra "7.0.0"
+    resolve "1.8.1"
+    rollup-pluginutils "2.3.3"
+    tslib "1.9.3"
+
+rollup-pluginutils@2.3.3:
+  version "2.3.3"
+  resolved "http://registry.npm.taobao.org/rollup-pluginutils/download/rollup-pluginutils-2.3.3.tgz#3aad9b1eb3e7fe8262820818840bf091e5ae6794"
+  integrity sha1-Oq2bHrPn/oJigggYhAvwkeWuZ5Q=
+  dependencies:
+    estree-walker "^0.5.2"
+    micromatch "^2.3.11"
 
 rsvp@^3.3.3:
   version "3.6.2"
@@ -11275,7 +11333,7 @@ tryer@^1.0.0:
   resolved "http://registry.npm.taobao.org/tryer/download/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
   integrity sha1-8shUBoALmw90yfdGW4HqrSQSUvg=
 
-tslib@^1.9.0:
+tslib@1.9.3, tslib@^1.9.0:
   version "1.9.3"
   resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha1-1+TdeSRdhUKMTX5IIqeZF5VMooY=

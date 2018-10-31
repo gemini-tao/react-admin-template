@@ -2,15 +2,26 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:30
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-30 20:32:29
+ * @Last Modified time: 2018-10-31 12:04:44
  */
 import { init } from '@rematch/core';
 import { routerMiddleware } from 'connected-react-router';
+import createRematchPersist from '@rematch/persist';
+import createLoadingPlugin from '@rematch/loading';
 import history from '../router/history';
 import routerReducer from './routerReducer';
 import * as models from './models';
 
 const isProduction = process.env.NODE_ENV === 'production';
+const persistPlugin = createRematchPersist({
+  whitelist: ['count'],
+  throttle: 5000,
+  version: 1,
+});
+
+const loading = createLoadingPlugin({
+  blacklist: ['updated'],
+});
 
 const store = init({
   models,
@@ -25,6 +36,7 @@ const store = init({
       routerMiddleware(history),
     ],
   },
+  plugins: [loading, persistPlugin],
 });
 
 export default store;

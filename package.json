@@ -6,6 +6,10 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@rematch/core": "^1.0.6",
+    "@rematch/loading": "^1.1.2",
+    "@rematch/persist": "^1.1.5",
+    "@rematch/select": "^2.0.3",
+    "@rematch/updated": "^1.0.1",
     "antd": "^3.10.3",
     "connected-react-router": "^4.5.0",
     "normalize.css": "^8.0.0",

@@ -2,22 +2,24 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:44
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-30 21:18:30
+ * @Last Modified time: 2018-10-31 11:01:35
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
-import { ConnectedRouter, goBack } from 'connected-react-router';
+import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router-dom';
 import history from './router/history';
 
 const mapState = state => ({
   count: state.count,
+  // loading: state.
 });
 
-const mapDispatch = ({ count: { goTo } }) => ({
-  goTo: () => goTo(),
+const mapDispatch = dispatch => ({
+  goTo: () => dispatch.count.goTo(),
+  asyncIncrement: () => dispatch.count.incrementAsync(),
 });
 
 @connect(
@@ -27,6 +29,7 @@ const mapDispatch = ({ count: { goTo } }) => ({
 class App extends Component {
   static propTypes = {
     goTo: PropTypes.func.isRequired,
+    asyncIncrement: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -41,13 +44,18 @@ class App extends Component {
     goTo();
   }
 
+  add = () => {
+    const { asyncIncrement } = this.props;
+    asyncIncrement();
+  }
+
   render() {
     const { a } = this.state;
     return (
       <div>
         <div>
           <Button type="primary" onClick={this.goTo}>go</Button>
-          <Button type="primary" onClick={() => goBack()}>back</Button>
+          <Button type="primary" onClick={this.add}>add</Button>
         </div>
         <ConnectedRouter history={history}>
           <div a={a}>
