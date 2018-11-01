@@ -2,31 +2,20 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:31:41
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-01 15:11:23
+ * @Last Modified time: 2018-11-01 19:59:42
  */
 import React, { Suspense } from 'react';
 import { ConnectedRouter } from 'connected-react-router';
-import { Route, Switch } from 'react-router-dom';
 import hashHistory from './history';
-import routes from './routes';
+import ROUTES from './routes';
 import ErrorBoundary from '../components/ErrorBoundary';
+import RenderRoutes from '../components/RenderRoutes';
 
 const RootRouter = () => (
   <ConnectedRouter history={hashHistory}>
     <ErrorBoundary>
       <Suspense fallback={<div>Loading...</div>}>
-        <Switch>
-          {
-            routes.map(({ path, component: Com, ...rest }) => (
-              <Route
-                key={path}
-                path={path}
-                exact
-                render={(history, match, location) => <Com {...rest} history={history} match={match} location={location} />}
-              />
-            ))
-          }
-        </Switch>
+        <RenderRoutes routes={ROUTES} />
       </Suspense>
     </ErrorBoundary>
   </ConnectedRouter>
