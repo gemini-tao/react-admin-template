@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-01 22:38:30
+ * @Last Modified time: 2018-11-02 00:02:35
  */
 import { lazy } from 'react';
 import Demo from '../pages/Demo';
@@ -28,6 +28,7 @@ const routes = [
       },
       {
         path: '/demo',
+        authority: ['admin'],
         component: Demo,
       },
     ],

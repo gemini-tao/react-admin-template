@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Authorized from './Authorized';
 
 const AuthorizedRoute = ({
@@ -32,8 +31,4 @@ const AuthorizedRoute = ({
   </Authorized>
 );
 
-export default connect(
-  state => ({
-    role: state.user.role,
-  }),
-)(AuthorizedRoute);
+export default AuthorizedRoute;
