@@ -1,8 +1,14 @@
 /*
  * @Author: lifan
+ * @Date: 2018-11-01 22:00:18
+ * @Last Modified by:   lifan
+ * @Last Modified time: 2018-11-01 22:00:18
+ */
+/*
+ * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-01 19:25:05
+ * @Last Modified time: 2018-11-01 21:59:54
  */
 import React, { Component } from 'react';
 import { Layout } from 'antd';
@@ -14,12 +20,12 @@ const {
 
 class BasicLayout extends Component {
   componentDidMount() {
-    console.log(this.props.history)
+    console.log(this.props)
   }
 
   render() {
     return (
-      <div style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'red', zIndex: 100,}}>
+      <div>
         login
       </div>
     );

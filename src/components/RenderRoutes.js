@@ -1,6 +1,15 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
+/*
+ * @Author: lifan
+ * @Date: 2018-11-01 21:57:48
+ * @Last Modified by: lifan
+ * @Last Modified time: 2018-11-01 23:07:22
+ */
+/* eslint-disable react/prop-types */
+import React, { Suspense } from 'react';
+import { Switch } from 'react-router-dom';
 import AuthorizedRoute from './AuthorizedRoute';
+import ErrorBoundary from './ErrorBoundary';
+import Loading from './Loading';
 
 export const RenderSubRoutes = route => (
   <AuthorizedRoute
@@ -14,15 +23,16 @@ export const RenderSubRoutes = route => (
   />
 );
 
-/* eslint-disable-next-line */
-const RenderRoutes = ({ routes, isExact }) => (
-  <Route render={props => routes.map((route) => {
-    if (route.path === '/') {
-      return <RenderSubRoutes key={route.path} exact={isExact} {...route} {...props} />;
-    }
-    return <RenderSubRoutes key={route.path} {...route} {...props} />;
-  })}
-  />
+const RenderRoutes = ({ routes }) => (
+  <ErrorBoundary>
+    <Suspense fallback={<Loading tip="loading..." style={{ margin: '60px auto' }} />}>
+      <Switch>
+        {
+          routes.map(route => <RenderSubRoutes key={route.path} {...route} />)
+        }
+      </Switch>
+    </Suspense>
+  </ErrorBoundary>
 );
 
 export default RenderRoutes;
