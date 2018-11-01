@@ -2,12 +2,12 @@
  * @Author: lifan
  * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-31 22:38:04
+ * @Last Modified time: 2018-11-01 13:58:17
  */
 
 /* eslint-disable import/no-extraneous-dependencies */
 import '@babel/polyfill';
-import 'react-app-polyfill/ie9';
+import 'react-app-polyfill/ie11';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -34,8 +34,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-// store.dispatch({
-//   type: 'count/incrementAsync',
-//   payload: 120,
-// });

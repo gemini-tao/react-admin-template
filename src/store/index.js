@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:30
  * @Last Modified by: lifan
- * @Last Modified time: 2018-10-31 16:36:44
+ * @Last Modified time: 2018-11-01 16:22:49
  */
 import { init } from '@rematch/core';
 import { routerMiddleware } from 'connected-react-router';
@@ -15,7 +15,7 @@ import * as models from './models';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const persistPlugin = createRematchPersist({
-  whitelist: ['count', 'cart'],
+  whitelist: ['user'],
   throttle: 5000,
   version: 1,
 });
