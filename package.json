@@ -12,6 +12,7 @@
     "@rematch/updated": "^1.0.1",
     "antd": "^3.10.3",
     "connected-react-router": "^4.5.0",
+    "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
