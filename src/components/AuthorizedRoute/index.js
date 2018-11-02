@@ -16,7 +16,7 @@ const AuthorizedRoute = ({
     noMatch={(
       <Route
         {...rest}
-        render={() => <Redirect to="/exception/403" />
+        render={() => <Redirect to="/403" />
       }
       />
     )}

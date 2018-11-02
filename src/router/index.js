@@ -1,10 +1,10 @@
+/* eslint-disable react/jsx-boolean-value */
 /*
  * @Author: lifan
  * @Date: 2018-11-01 13:31:41
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-02 00:02:01
+ * @Last Modified time: 2018-11-02 12:26:59
  */
-/* eslint-disable */
 import React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import hashHistory from './history';

@@ -2,12 +2,12 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-01 22:54:07
+ * @Last Modified time: 2018-11-02 12:37:08
  */
 /* eslint-disable */
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import { Switch, Redirect } from 'react-router-dom';
+import { Switch, Redirect, Route } from 'react-router-dom';
 import RenderRoutes from '../components/RenderRoutes';
 
 const {
@@ -28,11 +28,11 @@ class BasicLayout extends Component {
         </Sider>
         <Layout >
           <Header style={{ background: '#fff', textAlign: 'center', padding: 0 }}>Header</Header>
-          <Content style={{ margin: '24px 16px 0', height: '3000px', }}>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+          <Content style={{ margin: '24px 16px 0', }}>
+            <div>
               <Switch>
                 <Redirect exact from='/' to='/test'/>
-                <RenderRoutes routes={routes} />
+                <Route render={() => <RenderRoutes routes={routes} />} />
               </Switch>
             </div>
           </Content>

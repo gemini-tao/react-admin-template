@@ -1,0 +1,15 @@
+.exception {
+  color: blue;
+
+  .imgBlock {
+    width: 350px;
+  }
+
+  .imgEle {
+    height: 360px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+  }
+}

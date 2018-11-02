@@ -1,12 +1,13 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /*
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-01 23:56:37
+ * @Last Modified time: 2018-11-02 12:36:42
  */
-/* eslint-disable react/prop-types */
 import React, { Suspense } from 'react';
-import { Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthorizedRoute from './AuthorizedRoute';
 import ErrorBoundary from './ErrorBoundary';
 import Loading from './Loading';
@@ -33,10 +34,15 @@ const RenderRoutes = ({ routes }) => (
         {
           routes.map(route => <RenderSubRoutes key={route.path} {...route} />)
         }
+        <Route render={() => <Redirect to="/404" />} />
       </Switch>
     </Suspense>
   </ErrorBoundary>
 );
+
+RenderRoutes.propTypes = {
+  routes: PropTypes.array.isRequired,
+};
 
 RenderRoutes.setAuthority = (authority) => {
   role = authority;
