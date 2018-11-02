@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-02 12:37:08
+ * @Last Modified time: 2018-11-02 16:59:15
  */
 /* eslint-disable */
 import React, { Component } from 'react';
@@ -22,11 +22,11 @@ class BasicLayout extends Component {
   render() {
     const { routes } = this.props;
     return (
-      <Layout style={{ position: 'fixed', width: '100%', height: '100%',}}>
+      <Layout style={{ width: '100%', minHeight: '100%',}}>
         <Sider width={256} style={{ minHeight: '100%', color: 'white', }}>
           Sider
         </Sider>
-        <Layout >
+        <Layout>
           <Header style={{ background: '#fff', textAlign: 'center', padding: 0 }}>Header</Header>
           <Content style={{ margin: '24px 16px 0', }}>
             <div>

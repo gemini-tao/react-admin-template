@@ -1,15 +1,74 @@
+/*
+ * @Author: lifan
+ * @Date: 2018-11-02 16:21:58
+ * @Last Modified by: lifan
+ * @Last Modified time: 2018-11-02 17:05:18
+ */
+@import '@/assets/scss/variable.scss';
+
 .exception {
-  color: blue;
+  width: 100%;
+  min-height: 500px;
+  overflow-x: hidden;
+
+  .block {
+    margin: 70px auto 0;
+    width: 740px;
+
+    @media screen and (max-width: $screen-xl) {
+      width: 680px;
+    }
+
+    @media screen and (max-width: $screen-lg) {
+      margin: 30px auto 30px;
+      width: 100%;
+
+      .imgBlock,
+      .content {
+        float: none;
+        margin: 20px auto;
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
 
   .imgBlock {
-    width: 350px;
+    float: left;
+    width: 360px;
+    margin-left: 20px;
+
+    @media screen and (max-width: $screen-sm) {
+      width: 100%;
+      margin: 0;
+    }
   }
 
   .imgEle {
     height: 360px;
-    width: 100%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: contain;
+  }
+
+  .content {
+    float: right;
+    padding-left: 75px;
+    padding-top: 56px;
+
+    h1 {
+      color: #434e59;
+      font-size: 72px;
+      font-weight: 600;
+      line-height: 72px;
+      margin-bottom: 24px;
+    }
+
+    .desc {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 20px;
+      line-height: 28px;
+      margin-bottom: 16px;
+    }
   }
 }

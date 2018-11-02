@@ -2,11 +2,13 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-02 12:32:30
+ * @Last Modified time: 2018-11-02 16:16:56
  */
 import { lazy } from 'react';
 import Demo from '../pages/Demo';
-import Exception from '../components/Exception';
+import Exception403 from '../pages/Exception/403';
+import Exception404 from '../pages/Exception/404';
+import Exception500 from '../pages/Exception/500';
 
 const BasicLayout = lazy(() => import(/* webpackChunkName: 'BasicLayout' */'../layouts/BasicLayout'));
 const LoginLayout = lazy(() => import(/* webpackChunkName: 'test' */'../layouts/LoginLayout'));
@@ -34,11 +36,15 @@ const routes = [
       },
       {
         path: '/403',
-        component: Exception,
+        component: Exception403,
       },
       {
         path: '/404',
-        component: Exception,
+        component: Exception404,
+      },
+      {
+        path: '/500',
+        component: Exception500,
       },
     ],
   },

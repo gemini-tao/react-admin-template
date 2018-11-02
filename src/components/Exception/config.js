@@ -1,3 +1,9 @@
+/*
+ * @Author: lifan
+ * @Date: 2018-11-02 16:21:53
+ * @Last Modified by:   lifan
+ * @Last Modified time: 2018-11-02 16:21:53
+ */
 import Img403 from '../../assets/svgs/403.svg';
 import Img404 from '../../assets/svgs/404.svg';
 import Img500 from '../../assets/svgs/500.svg';
