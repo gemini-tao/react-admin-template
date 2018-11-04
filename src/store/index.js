@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:30
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-02 09:21:33
+ * @Last Modified time: 2018-11-04 11:52:12
  */
 import { init } from '@rematch/core';
 import { routerMiddleware } from 'connected-react-router';
@@ -15,9 +15,9 @@ import * as models from './models';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const persistPlugin = createRematchPersist({
-  whitelist: ['user'],
-  throttle: 5000,
-  version: 1,
+  whitelist: ['user', 'settings'],
+  throttle: 2000,
+  version: 2,
 });
 const loading = createLoadingPlugin({
   blacklist: ['updated'],

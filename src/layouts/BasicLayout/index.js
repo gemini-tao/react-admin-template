@@ -1,15 +1,18 @@
+/* eslint-disable react/sort-comp */
 /*
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-02 23:04:57
+ * @Last Modified time: 2018-11-04 11:51:30
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Layout } from 'antd';
+import { connect } from 'react-redux';
+import { Layout, Icon } from 'antd';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import debounce from 'lodash.debounce';
 import RenderRoutes from '../../components/RenderRoutes';
+import styles from './style.module.scss';
 
 const {
   Header, Footer, Sider, Content,
@@ -18,11 +21,13 @@ const {
 class BasicLayout extends Component {
   static propTypes = {
     routes: PropTypes.array.isRequired,
+    isMenuCollapsed: PropTypes.bool.isRequired,
+    triggerMenuCollapsed: PropTypes.func.isRequired,
   }
 
   state = {
     height: 0,
-  };
+  }
 
   calcWindowHeight = debounce(() => {
     const height = document.documentElement.clientHeight;
@@ -42,16 +47,28 @@ class BasicLayout extends Component {
   }
 
   render() {
-    const { routes } = this.props;
+    const { routes, isMenuCollapsed, triggerMenuCollapsed } = this.props;
     const { height } = this.state;
 
     return (
       <Layout>
-        <Sider width={256} style={{ color: '#fff' }}>
-          Sider
+        <Sider
+          width={256}
+          style={{ color: '#fff' }}
+          trigger={null}
+          collapsible
+          collapsed={isMenuCollapsed}
+        >
+          sider
         </Sider>
         <Layout style={{ minHeight: (height - 1) }}>
-          <Header style={{ background: '#fff', textAlign: 'center', padding: 0 }}>Header</Header>
+          <Header className={styles.header}>
+            <Icon
+              className={styles.trigger}
+              type={isMenuCollapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={triggerMenuCollapsed}
+            />
+          </Header>
           <Content style={{ margin: '24px 16px 0' }}>
             <div>
               <Switch>
@@ -67,4 +84,15 @@ class BasicLayout extends Component {
   }
 }
 
-export default BasicLayout;
+const mapStateToProps = state => ({
+  isMenuCollapsed: state.settings.isMenuCollapsed,
+});
+
+const mapDispatchToProps = dispatch => ({
+  triggerMenuCollapsed: dispatch.settings.triggerMenuCollapsed,
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BasicLayout);
