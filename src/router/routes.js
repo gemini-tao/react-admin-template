@@ -2,18 +2,24 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-04 12:35:19
+ * @Last Modified time: 2018-11-04 13:27:50
  */
 import { lazy } from 'react';
-import Demo from '../pages/Demo';
-
-const BasicLayout = lazy(() => import(/* webpackChunkName: 'BasicLayout' */'../layouts/BasicLayout'));
-const LoginLayout = lazy(() => import(/* webpackChunkName: 'test' */'../layouts/LoginLayout'));
-// const Demo = lazy(() => import(/* webpackChunkName: 'BasicLayout' */'../pages/Demo'));
+import Exception403 from '../pages/Exception/403';
+import Exception404 from '../pages/Exception/404';
+import Exception500 from '../pages/Exception/500';
+import BasicLayout from '../layouts/BasicLayout';
+import LoginLayout from '../layouts/LoginLayout';
+// import Demo from '../pages/Demo';
+// import Test from '../pages/Test';
+// const BasicLayout = lazy(() => import(/* webpackChunkName: 'BasicLayout' */'../layouts/BasicLayout'));
+// const LoginLayout = lazy(() => import(/* webpackChunkName: 'test' */'../layouts/LoginLayout'));
+// const Exception403 = lazy(() => import(/* webpackChunkName: 'Exception' */'../pages/Exception/403'));
+// const Exception404 = lazy(() => import(/* webpackChunkName: 'Exception' */'../pages/Exception/404'));
+// const Exception500 = lazy(() => import(/* webpackChunkName: 'Exception' */'../pages/Exception/500'));
+const Demo = lazy(() => import(/* webpackChunkName: 'Demo' */'../pages/Demo'));
 const Test = lazy(() => import(/* webpackChunkName: 'test' */'../pages/Test'));
-const Exception403 = lazy(() => import(/* webpackChunkName: 'Exception' */'../pages/Exception/403'));
-const Exception404 = lazy(() => import(/* webpackChunkName: 'Exception' */'../pages/Exception/404'));
-const Exception500 = lazy(() => import(/* webpackChunkName: 'Exception' */'../pages/Exception/500'));
+
 
 const routes = [
   {
