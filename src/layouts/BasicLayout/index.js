@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-04 11:51:30
+ * @Last Modified time: 2018-11-04 12:18:40
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -17,7 +17,11 @@ import styles from './style.module.scss';
 const {
   Header, Footer, Sider, Content,
 } = Layout;
-
+/* eslint-disable no-use-before-define */
+@connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)
 class BasicLayout extends Component {
   static propTypes = {
     routes: PropTypes.array.isRequired,
@@ -26,7 +30,7 @@ class BasicLayout extends Component {
   }
 
   state = {
-    height: 0,
+    height: 1200,
   }
 
   calcWindowHeight = debounce(() => {
@@ -84,15 +88,16 @@ class BasicLayout extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  isMenuCollapsed: state.settings.isMenuCollapsed,
-});
+function mapStateToProps(state) {
+  return {
+    isMenuCollapsed: state.settings.isMenuCollapsed,
+  };
+}
 
-const mapDispatchToProps = dispatch => ({
-  triggerMenuCollapsed: dispatch.settings.triggerMenuCollapsed,
-});
+function mapDispatchToProps(dispatch) {
+  return {
+    triggerMenuCollapsed: dispatch.settings.triggerMenuCollapsed,
+  };
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(BasicLayout);
+export default BasicLayout;

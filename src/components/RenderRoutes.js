@@ -3,14 +3,14 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-02 12:36:42
+ * @Last Modified time: 2018-11-04 12:32:49
  */
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthorizedRoute from './AuthorizedRoute';
 import ErrorBoundary from './ErrorBoundary';
-import Loading from './Loading';
+import TopLoading from './TopLoading';
 
 let role = '';
 
@@ -29,7 +29,7 @@ export const RenderSubRoutes = route => (
 
 const RenderRoutes = ({ routes }) => (
   <ErrorBoundary>
-    <Suspense fallback={<Loading tip="loading..." style={{ margin: '60px auto' }} />}>
+    <Suspense fallback={<TopLoading />}>
       <Switch>
         {
           routes.map(route => <RenderSubRoutes key={route.path} {...route} />)
