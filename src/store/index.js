@@ -1,9 +1,8 @@
-/* eslint-disable indent */
 /*
  * @Author: lifan
  * @Date: 2018-10-30 15:25:30
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-05 08:39:34
+ * @Last Modified time: 2018-11-05 13:17:24
  */
 import { init } from '@rematch/core';
 import { routerMiddleware } from 'connected-react-router';
@@ -29,7 +28,7 @@ const persistPlugin = createRematchPersist({
   whitelist: ['user', 'settings'],
   throttle: 1000,
   version: 1,
-  migrate: createMigrate(migrations, { debug: true }),
+  migrate: createMigrate(migrations, { debug: !isProduction }),
 });
 const loading = createLoadingPlugin();
 const selectPlugin = selectorsPlugin();
@@ -37,6 +36,9 @@ const selectPlugin = selectorsPlugin();
 const store = init({
   models,
   redux: {
+    rootReducers: {
+      RESET: () => undefined,
+    },
     reducers: {
       router: routerReducer(history),
     },

@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-04 13:27:50
+ * @Last Modified time: 2018-11-05 16:52:52
  */
 import { lazy } from 'react';
 import Exception403 from '../pages/Exception/403';
@@ -33,23 +33,30 @@ const routes = [
     routes: [
       {
         path: '/test',
+        name: '测试test',
+        icon: 'dashboard',
         component: Test,
       },
       {
         path: '/demo',
+        name: '测试test',
+        icon: 'form',
         authority: ['admin'],
         component: Demo,
       },
       {
         path: '/403',
+        hideInMenu: true,
         component: Exception403,
       },
       {
         path: '/404',
+        hideInMenu: true,
         component: Exception404,
       },
       {
         path: '/500',
+        hideInMenu: true,
         component: Exception500,
       },
     ],

@@ -3,8 +3,9 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-05 09:26:20
+ * @Last Modified time: 2018-11-05 16:50:31
  */
+/* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -12,16 +13,18 @@ import { Layout, Icon } from 'antd';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import debounce from 'lodash.debounce';
 import RenderRoutes from '../../components/RenderRoutes';
+import SiderMenu from '../../components/SiderMenu';
+import ROUTES from '../../router/routes';
 import styles from './style.module.scss';
 
 const {
   Header, Footer, Sider, Content,
 } = Layout;
-/* eslint-disable no-use-before-define */
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+
+const formatter = (data, parentAuthority, parentName) => (
+  data.map(item => item)
+);
+
 class BasicLayout extends Component {
   static propTypes = {
     routes: PropTypes.array.isRequired,
@@ -40,9 +43,15 @@ class BasicLayout extends Component {
     }));
   }, 100);
 
+  getMenuData(data) {
+    console.log(formatter(data))
+  }
+
   componentDidMount() {
     this.calcWindowHeight();
     window.addEventListener('resize', this.calcWindowHeight);
+
+    this.getMenuData(ROUTES)
   }
 
   componentWillUnmount() {
@@ -57,14 +66,14 @@ class BasicLayout extends Component {
       <Layout>
         <Sider
           width={256}
-          style={{ color: '#fff' }}
+          style={{ color: '#fff', overflow: 'hidden' }}
           trigger={null}
           collapsible
           collapsed={isMenuCollapsed}
         >
-          sider
+          <SiderMenu collapsed={!isMenuCollapsed} />
         </Sider>
-        <Layout style={{ minHeight: (height - 1) }}>
+        <Layout style={{ minHeight: height }}>
           <Header className={styles.header}>
             <Icon
               className={styles.trigger}
@@ -99,4 +108,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default BasicLayout;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BasicLayout);
