@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-05 16:50:31
+ * @Last Modified time: 2018-11-05 21:57:04
  */
 /* eslint-disable */
 import React, { Component } from 'react';
@@ -25,6 +25,10 @@ const formatter = (data, parentAuthority, parentName) => (
   data.map(item => item)
 );
 
+@connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)
 class BasicLayout extends Component {
   static propTypes = {
     routes: PropTypes.array.isRequired,
@@ -108,7 +112,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(BasicLayout);
+export default BasicLayout;

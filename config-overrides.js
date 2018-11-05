@@ -1,59 +1,44 @@
-/* eslint-disable */
-// const {  addBundleVisualizer } = require('customize-cra');
-const { injectBabelPlugin } = require('react-app-rewired');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const rewireAliases = require('react-app-rewire-aliases');
-const rewireEslint = require('react-app-rewire-eslint');
+/*
+ * @Author: lifan
+ * @Date: 2018-11-05 21:40:19
+ * @Last Modified by: lifan
+ * @Last Modified time: 2018-11-05 22:13:07
+ */
+const {
+  override, fixBabelImports, useEslintRc, addWebpackAlias,
+  addDecoratorsLegacy, addBundleVisualizer,
+} = require('customize-cra');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const path = require('path');
 
-function overrideEslintOptions(options) {
-  // do stuff with the eslint options...
-  return options;
-}
-
-module.exports = function override(config, env) {
-   // 设置eslint规则
-   config = rewireEslint(config, env, overrideEslintOptions);
-
-  // 按需加载antd组件
-  config = injectBabelPlugin(
-    ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }], // change importing css to less
-    config,
-  );
-
-  // 启用装饰器
-  config = injectBabelPlugin(
-    ["@babel/plugin-proposal-decorators", { "legacy": true }], // babel 7.0采用这个插件
-    config,
-  );
-
-  // FIXME:
-  // 给@ant-design/icons设置别名，实现svg字体手动按需加载，等待官方提供按需加载方案
-  config = rewireAliases.aliasesOptions({
-    "@ant-design/icons/lib/dist$": path.resolve(__dirname, "./src/components/icons.js"),
-    "@":  path.resolve(__dirname, "./src")
-  })(config, env);
-
-  // 添加stylelint插件
+const addStylint = () => (config) => {
   config.plugins.push(
     new StyleLintPlugin({
-      context: "src",
+      context: 'src',
       configFile: path.resolve(__dirname, './.stylelintrc.json'),
       files: '**/*.scss',
       failOnError: false,
       quiet: true,
       syntax: 'scss',
-      fix: false
-    })
-  )
+      fix: false,
+    }),
+  );
 
-  // 生产模式分析bundle
-  if (env === 'production') {
-    config.plugins.push(
-      new BundleAnalyzerPlugin()
-    )
-  }
-
-  return config
+  return config;
 };
+
+module.exports = override(
+  useEslintRc(),
+  addStylint(),
+  addDecoratorsLegacy(),
+  process.env.NODE_ENV === 'production' && addBundleVisualizer(),
+  fixBabelImports('antd', {
+    libraryName: 'antd',
+    libraryDirectory: 'es',
+    style: 'css',
+  }),
+  addWebpackAlias({
+    '@ant-design/icons/lib/dist$': path.resolve(__dirname, './src/components/icons.js'),
+    '@': path.resolve(__dirname, './src'),
+  }),
+);
