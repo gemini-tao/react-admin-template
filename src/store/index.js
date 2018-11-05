@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:30
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-04 22:33:29
+ * @Last Modified time: 2018-11-05 08:39:34
  */
 import { init } from '@rematch/core';
 import { routerMiddleware } from 'connected-react-router';
@@ -31,9 +31,7 @@ const persistPlugin = createRematchPersist({
   version: 1,
   migrate: createMigrate(migrations, { debug: true }),
 });
-const loading = createLoadingPlugin({
-  blacklist: ['updated'],
-});
+const loading = createLoadingPlugin();
 const selectPlugin = selectorsPlugin();
 
 const store = init({

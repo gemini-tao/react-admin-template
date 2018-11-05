@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-04 12:18:40
+ * @Last Modified time: 2018-11-05 09:26:20
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -35,7 +35,6 @@ class BasicLayout extends Component {
 
   calcWindowHeight = debounce(() => {
     const height = document.documentElement.clientHeight;
-
     this.setState(() => ({
       height,
     }));
