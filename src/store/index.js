@@ -2,9 +2,10 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:30
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-05 13:17:24
+ * @Last Modified time: 2018-11-06 16:57:01
  */
 import { init } from '@rematch/core';
+// import { combineReducers } from 'redux-immutable';
 import { routerMiddleware } from 'connected-react-router';
 import createRematchPersist from '@rematch/persist';
 /* eslint-disable-next-line */
@@ -30,7 +31,9 @@ const persistPlugin = createRematchPersist({
   version: 1,
   migrate: createMigrate(migrations, { debug: !isProduction }),
 });
-const loading = createLoadingPlugin();
+const loading = createLoadingPlugin({
+  whitelist: ['user'],
+});
 const selectPlugin = selectorsPlugin();
 
 const store = init({

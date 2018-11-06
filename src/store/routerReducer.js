@@ -1,8 +1,8 @@
 /*
  * @Author: lifan
  * @Date: 2018-10-30 20:17:27
- * @Last Modified by:   lifan
- * @Last Modified time: 2018-10-30 20:17:27
+ * @Last Modified by: lifan
+ * @Last Modified time: 2018-11-06 16:56:02
  */
 const merge = (state, payload) => ({ ...state, ...payload });
 
