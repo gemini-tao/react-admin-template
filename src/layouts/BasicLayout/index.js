@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-07 11:16:08
+ * @Last Modified time: 2018-11-07 14:12:59
  */
 /* eslint-disable */
 import React, { Component } from 'react';
@@ -49,6 +49,11 @@ class BasicLayout extends Component {
 
   getMenuData(data) {
     console.log(formatter(data))
+  }
+
+  shouldComponentUpdate(nextProps) {
+    console.log(nextProps, this.props)
+    return true;
   }
 
   componentDidMount() {
@@ -108,7 +113,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    triggerMenuCollapsed: dispatch.settings.triggerMenuCollapsedAsync,
+    triggerMenuCollapsed: dispatch.settings.triggerMenuCollapsed,
   };
 }
 

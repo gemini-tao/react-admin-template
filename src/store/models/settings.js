@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-07 11:14:18
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-07 11:15:48
+ * @Last Modified time: 2018-11-07 14:13:34
  */
 const model = {
   name: 'settings',

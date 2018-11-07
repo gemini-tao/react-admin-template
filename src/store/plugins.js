@@ -2,8 +2,9 @@
  * @Author: lifan
  * @Date: 2018-11-07 11:01:00
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-07 11:23:21
+ * @Last Modified time: 2018-11-07 14:07:45
  */
+/* eslint-disable */
 import createRematchPersist from '@rematch/persist';
 import { createMigrate } from 'redux-persist'; // eslint-disable-line
 import createLoadingPlugin from '@rematch/loading';
@@ -31,7 +32,8 @@ const persistPlugin = (() => {
 
 // loading插件
 const loading = createLoadingPlugin({
-  whitelist: ['settings/triggerMenuCollapsedAsync'],
+  asNumber: true,
+  // whitelist: ['settings/triggerMenuCollapsedAsync'],
 });
 
 // selector插件
