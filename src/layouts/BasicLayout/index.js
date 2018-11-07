@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-07 14:12:59
+ * @Last Modified time: 2018-11-07 14:19:47
  */
 /* eslint-disable */
 import React, { Component } from 'react';
@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { Layout, Icon } from 'antd';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import debounce from 'lodash.debounce';
-import RenderRoutes from '../../components/RenderRoutes';
+import RouterView from '../../components/RouterView';
 import SiderMenu from '../../components/SiderMenu';
 import ROUTES from '../../router/routes';
 import styles from './style.module.scss';
@@ -94,7 +94,7 @@ class BasicLayout extends Component {
             <div>
               <Switch>
                 <Redirect exact from="/" to="/test" />
-                <Route render={() => <RenderRoutes routes={routes} />} />
+                <Route render={() => <RouterView routes={routes} />} />
               </Switch>
             </div>
           </Content>

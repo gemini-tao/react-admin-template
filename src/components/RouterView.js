@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-04 12:32:49
+ * @Last Modified time: 2018-11-07 14:19:17
  */
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
@@ -27,7 +27,7 @@ export const RenderSubRoutes = route => (
   />
 );
 
-const RenderRoutes = ({ routes }) => (
+const RouterView = ({ routes }) => (
   <ErrorBoundary>
     <Suspense fallback={<TopLoading />}>
       <Switch>
@@ -40,12 +40,12 @@ const RenderRoutes = ({ routes }) => (
   </ErrorBoundary>
 );
 
-RenderRoutes.propTypes = {
+RouterView.propTypes = {
   routes: PropTypes.array.isRequired,
 };
 
-RenderRoutes.setAuthority = (authority) => {
+RouterView.setAuthority = (authority) => {
   role = authority;
 };
 
-export default RenderRoutes;
+export default RouterView;

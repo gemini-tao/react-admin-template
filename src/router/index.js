@@ -3,20 +3,20 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:31:41
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-02 12:26:59
+ * @Last Modified time: 2018-11-07 14:19:36
  */
 import React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import hashHistory from './history';
 import ROUTES from './routes';
-import RenderRoutes from '../components/RenderRoutes';
+import RouterView from '../components/RouterView';
 import store from '../store';
 
-RenderRoutes.setAuthority(store.getState().user.role);
+RouterView.setAuthority(store.getState().user.role);
 
 const RootRouter = () => (
   <ConnectedRouter history={hashHistory}>
-    <RenderRoutes routes={ROUTES} />
+    <RouterView routes={ROUTES} />
   </ConnectedRouter>
 );
 
