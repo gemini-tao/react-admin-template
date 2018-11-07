@@ -2,39 +2,15 @@
  * @Author: lifan
  * @Date: 2018-10-30 15:25:30
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-06 16:57:01
+ * @Last Modified time: 2018-11-07 11:13:21
  */
 import { init } from '@rematch/core';
-// import { combineReducers } from 'redux-immutable';
-import { routerMiddleware } from 'connected-react-router';
-import createRematchPersist from '@rematch/persist';
-/* eslint-disable-next-line */
-import { createMigrate } from 'redux-persist';
-import createLoadingPlugin from '@rematch/loading';
-import selectorsPlugin from '@rematch/select';
+import { connectRouter } from 'connected-react-router';
 import history from '../router/history';
-import routerReducer from './routerReducer';
+import plugins from './plugins';
 import * as models from './models';
 
 const isProduction = process.env.NODE_ENV === 'production';
-
-const migrations = {
-  0: state => ({
-    ...state,
-  }),
-};
-
-const persistPlugin = createRematchPersist({
-  key: 'root',
-  whitelist: ['user', 'settings'],
-  throttle: 1000,
-  version: 1,
-  migrate: createMigrate(migrations, { debug: !isProduction }),
-});
-const loading = createLoadingPlugin({
-  whitelist: ['user'],
-});
-const selectPlugin = selectorsPlugin();
 
 const store = init({
   models,
@@ -43,18 +19,20 @@ const store = init({
       RESET: () => undefined,
     },
     reducers: {
-      router: routerReducer(history),
+      router: connectRouter(history),
     },
     devtoolOptions: {
       disabled: isProduction,
     },
-    middlewares: [
-      routerMiddleware(history),
-    ],
   },
-  plugins: [loading, selectPlugin, persistPlugin],
+  plugins: [...plugins],
 });
 
+/**
+ * 获取selector数据
+ * @param {String} modelName model名称
+ * @param {String} selector selector名称
+ */
 export const getSelector = (modelName, selector) => store.select[modelName][selector](store.getState());
 
 export const { select } = store;
