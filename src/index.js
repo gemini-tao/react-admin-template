@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-07 14:07:55
+ * @Last Modified time: 2018-11-08 13:17:24
  */
 
 /* eslint-disable import/no-extraneous-dependencies */
@@ -33,4 +33,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();

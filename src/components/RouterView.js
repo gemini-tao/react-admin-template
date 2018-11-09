@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 /*
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-07 14:19:17
+ * @Last Modified time: 2018-11-08 16:08:34
  */
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';

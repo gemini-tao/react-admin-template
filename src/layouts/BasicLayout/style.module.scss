@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-05 21:59:02
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-05 22:05:53
+ * @Last Modified time: 2018-11-08 15:14:35
  */
 .header {
   background: #fff !important;
@@ -19,4 +19,13 @@
       color: #1890ff;
     }
   }
+}
+
+.content {
+  min-height: 100vh;
+}
+
+.sider {
+  color: #fff;
+  overflow: hidden;
 }

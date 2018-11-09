@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-07 14:19:47
+ * @Last Modified time: 2018-11-08 16:07:26
  */
 /* eslint-disable */
 import React, { Component } from 'react';
@@ -11,7 +11,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Layout, Icon } from 'antd';
 import { Switch, Redirect, Route } from 'react-router-dom';
-import debounce from 'lodash.debounce';
 import RouterView from '../../components/RouterView';
 import SiderMenu from '../../components/SiderMenu';
 import ROUTES from '../../router/routes';
@@ -36,17 +35,6 @@ class BasicLayout extends Component {
     triggerMenuCollapsed: PropTypes.func.isRequired,
   }
 
-  state = {
-    height: 1200,
-  }
-
-  calcWindowHeight = debounce(() => {
-    const height = document.documentElement.clientHeight;
-    this.setState(() => ({
-      height,
-    }));
-  }, 100);
-
   getMenuData(data) {
     console.log(formatter(data))
   }
@@ -57,32 +45,28 @@ class BasicLayout extends Component {
   }
 
   componentDidMount() {
-    this.calcWindowHeight();
-    window.addEventListener('resize', this.calcWindowHeight);
-
     this.getMenuData(ROUTES)
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.calcWindowHeight);
+
   }
 
   render() {
     const { routes, isMenuCollapsed, triggerMenuCollapsed } = this.props;
-    const { height } = this.state;
 
     return (
       <Layout>
         <Sider
           width={256}
-          style={{ color: '#fff', overflow: 'hidden' }}
+          className={styles.sider}
           trigger={null}
           collapsible
           collapsed={isMenuCollapsed}
         >
           <SiderMenu collapsed={!isMenuCollapsed} />
         </Sider>
-        <Layout style={{ minHeight: height }}>
+        <Layout className={styles.content}>
           <Header className={styles.header}>
             <Icon
               className={styles.trigger}
