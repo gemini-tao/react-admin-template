@@ -9017,7 +9017,7 @@ raf@3.4.0:
   dependencies:
     performance-now "^2.1.0"
 
-raf@^3.4.0:
+raf@^3.4.0, raf@~3.4.0:
   version "3.4.1"
   resolved "http://registry.npm.taobao.org/raf/download/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
   integrity sha1-B0LpmkplUvRF1z4+4DKK8P8e3jk=
@@ -9282,6 +9282,15 @@ rc-progress@~2.2.6:
     babel-runtime "6.x"
     prop-types "^15.5.8"
 
+rc-queue-anim@^1.6.7:
+  version "1.6.7"
+  resolved "http://registry.npm.taobao.org/rc-queue-anim/download/rc-queue-anim-1.6.7.tgz#d0c63d2ad2d7c1f47b11caeb807fd6908a8cca64"
+  integrity sha1-0MY9KtLXwfR7EcrrgH/WkIqMymQ=
+  dependencies:
+    babel-runtime "6.x"
+    prop-types "^15.6.0"
+    rc-tween-one "^2.2.8"
+
 rc-rate@~2.4.2:
   version "2.4.3"
   resolved "http://registry.npm.taobao.org/rc-rate/download/rc-rate-2.4.3.tgz#70434905faf84c9a0694bec4bdbd9b9a9099318f"
@@ -9446,6 +9455,17 @@ rc-trigger@^3.0.0-rc.2:
     rc-align "^2.4.1"
     rc-animate "^3.0.0-rc.1"
     rc-util "^4.4.0"
+
+rc-tween-one@^2.2.17, rc-tween-one@^2.2.8:
+  version "2.2.17"
+  resolved "http://registry.npm.taobao.org/rc-tween-one/download/rc-tween-one-2.2.17.tgz#048c52937124e1c53f2d3a353b28b3091a4c086c"
+  integrity sha1-BIxSk3Ek4cU/LTo1OyizCRpMCGw=
+  dependencies:
+    babel-runtime "6.x"
+    prop-types "^15.6.1"
+    raf "~3.4.0"
+    style-utils "~0.1.13"
+    tween-functions "~1.2.0"
 
 rc-upload@~2.6.0:
   version "2.6.0"
@@ -11025,6 +11045,11 @@ style-search@^0.1.0:
   resolved "http://registry.npm.taobao.org/style-search/download/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
   integrity sha1-eVjHk+R+MuB9K1yv5cC/jhLneQI=
 
+style-utils@~0.1.13:
+  version "0.1.21"
+  resolved "http://registry.npm.taobao.org/style-utils/download/style-utils-0.1.21.tgz#18578663b943e0d64f2f8471ab5c7a4a0108a0e1"
+  integrity sha1-GFeGY7lD4NZPL4Rxq1x6SgEIoOE=
+
 stylehacks@^4.0.0:
   version "4.0.1"
   resolved "http://registry.npm.taobao.org/stylehacks/download/stylehacks-4.0.1.tgz#3186595d047ab0df813d213e51c8b94e0b9010f2"
@@ -11431,6 +11456,11 @@ tunnel-agent@^0.6.0:
   integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
   dependencies:
     safe-buffer "^5.0.1"
+
+tween-functions@~1.2.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/tween-functions/download/tween-functions-1.2.0.tgz#1ae3a50e7c60bb3def774eac707acbca73bbc3ff"
+  integrity sha1-GuOlDnxguz3vd06scHrLynO7w/8=
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"

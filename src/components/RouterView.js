@@ -2,16 +2,30 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-08 16:08:34
+ * @Last Modified time: 2018-11-13 12:06:14
  */
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import TweenOne from 'rc-tween-one';
 import AuthorizedRoute from './AuthorizedRoute';
 import ErrorBoundary from './ErrorBoundary';
 import TopLoading from './TopLoading';
 
 let role = '';
+
+const animation = [
+  {
+    translateX: 20,
+    opacity: 0,
+    duration: 0,
+  },
+  {
+    translateX: 0,
+    opacity: 1,
+    duration: 450,
+  },
+];
 
 export const RenderSubRoutes = route => (
   <AuthorizedRoute
@@ -20,9 +34,16 @@ export const RenderSubRoutes = route => (
     exact={route.exact}
     strict={route.strict}
     role={role}
-    render={props => (
-      <route.component {...props} routes={route.routes} />
-    )}
+    render={(props) => {
+      if (route.path === '/' || route.path === '/login') {
+        return <route.component {...props} routes={route.routes} />;
+      }
+      return (
+        <TweenOne animation={animation}>
+          <route.component {...props} routes={route.routes} />
+        </TweenOne>
+      );
+    }}
   />
 );
 
