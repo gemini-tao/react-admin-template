@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-08 16:07:26
+ * @Last Modified time: 2018-11-13 16:14:57
  */
 /* eslint-disable */
 import React, { Component } from 'react';
@@ -20,8 +20,43 @@ const {
   Header, Footer, Sider, Content,
 } = Layout;
 
-const formatter = (data, parentAuthority, parentName) => (
-  data.map(item => item)
+const formatter = (data, role) => (
+  data.reduce((arr,item) => {
+    if (!item.path || !item.name) {
+      return arr;
+    }
+
+    if (item.authority && item.authority.indexOf(role) === -1 || item.hideInMenu) {
+      return arr;
+    }
+
+    const result = {
+      ...item,
+    }
+
+    if (item.routes && item.routes.length !== 0) {
+      const children = formatter(item.routes, role);
+
+      result.children = children;
+    }
+
+    // const result = {
+    //   ...item,
+    //   authority: item.authority || parentAuthority,
+    // };
+
+    // if (item.routes && item.routes.length !== 0) {
+    //   const children = formatter(item.routes, item.authority);
+    //   result.children = children;
+    // }
+
+    delete result.routes;
+    delete result.component;
+
+    arr.push(result);
+
+    return arr
+  }, [])
 );
 
 @connect(
@@ -35,6 +70,11 @@ class BasicLayout extends Component {
     triggerMenuCollapsed: PropTypes.func.isRequired,
   }
 
+  state = {
+    menuData: formatter(ROUTES[1].routes, this.props.role),
+    isMobile: false,
+  }
+
   getMenuData(data) {
     console.log(formatter(data))
   }
@@ -45,7 +85,7 @@ class BasicLayout extends Component {
   }
 
   componentDidMount() {
-    this.getMenuData(ROUTES)
+
   }
 
   componentWillUnmount() {
@@ -54,18 +94,17 @@ class BasicLayout extends Component {
 
   render() {
     const { routes, isMenuCollapsed, triggerMenuCollapsed } = this.props;
-
+    const { menuData, isMobile } = this.state;
     return (
       <Layout>
-        <Sider
-          width={256}
-          className={styles.sider}
-          trigger={null}
-          collapsible
-          collapsed={isMenuCollapsed}
-        >
-          <SiderMenu collapsed={!isMenuCollapsed} />
-        </Sider>
+        {
+          isMobile ? null :
+            <SiderMenu
+              className={styles.sider}
+              onCollapse={triggerMenuCollapsed}
+              collapsed={isMenuCollapsed}
+              menuData={menuData} />
+        }
         <Layout className={styles.content}>
           <Header className={styles.header}>
             <Icon
@@ -92,6 +131,7 @@ class BasicLayout extends Component {
 function mapStateToProps(state) {
   return {
     isMenuCollapsed: state.settings.isMenuCollapsed,
+    role: state.user.role,
   };
 }
 

@@ -12,6 +12,8 @@
     "antd": "^3.10.7",
     "connected-react-router": "^5.0.1",
     "lodash.debounce": "^4.0.8",
+    "lodash.isequal": "^4.5.0",
+    "memoize-one": "^4.0.3",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "prop-types": "^15.6.2",
