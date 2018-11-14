@@ -2,9 +2,9 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-14 11:35:30
+ * @Last Modified time: 2018-11-14 16:13:25
  */
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import TweenOne from 'rc-tween-one';
@@ -35,12 +35,13 @@ export const RenderSubRoutes = route => (
     strict={route.strict}
     role={role}
     render={(props) => {
+      const Com = route.component.name === 'component' ? lazy(route.component) : route.component;
       if (route.path === '/' || route.path === '/login') {
-        return <route.component {...props} routes={route.routes} />;
+        return <Com {...props} routes={route.routes} />;
       }
       return (
         <TweenOne animation={animation}>
-          <route.component {...props} routes={route.routes} />
+          <Com {...props} routes={route.routes} />
         </TweenOne>
       );
     }}

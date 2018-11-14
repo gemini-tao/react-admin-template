@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-05 21:59:02
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-13 16:19:01
+ * @Last Modified time: 2018-11-14 14:39:01
  */
 .header {
   background: #fff !important;
@@ -26,6 +26,6 @@
 }
 
 .sider {
-  color: #fff;
-  overflow: hidden;
+  min-height: 100vh;
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
 }

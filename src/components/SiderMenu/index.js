@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-05 15:47:55
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-14 10:23:40
+ * @Last Modified time: 2018-11-14 14:38:11
  */
 import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
@@ -37,6 +37,7 @@ export default class SiderMenu extends PureComponent {
         breakpoint="lg"
         onCollapse={onCollapse}
         width={256}
+        className={className}
       >
         <BaseMenu
           menuData={menuData}

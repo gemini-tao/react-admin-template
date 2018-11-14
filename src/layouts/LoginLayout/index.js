@@ -1,8 +1,8 @@
 /*
  * @Author: lifan
  * @Date: 2018-11-01 22:00:18
- * @Last Modified by:   lifan
- * @Last Modified time: 2018-11-01 22:00:18
+ * @Last Modified by: lifan
+ * @Last Modified time: 2018-11-14 15:48:28
  */
 /*
  * @Author: lifan
@@ -18,7 +18,7 @@ const {
   Header, Footer, Sider, Content,
 } = Layout;
 
-class BasicLayout extends Component {
+class LoginLayout extends Component {
   componentDidMount() {
     console.log(this.props)
   }
@@ -32,4 +32,4 @@ class BasicLayout extends Component {
   }
 }
 
-export default BasicLayout;
+export default LoginLayout;
