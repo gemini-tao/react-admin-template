@@ -2,11 +2,11 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-14 16:13:25
+ * @Last Modified time: 2018-11-14 17:08:45
  */
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import TweenOne from 'rc-tween-one';
 import AuthorizedRoute from './AuthorizedRoute';
 import ErrorBoundary from './ErrorBoundary';
@@ -60,7 +60,7 @@ const RouterView = ({ routes }) => (
             return <RenderSubRoutes key={route.path} {...route} />;
           })
         }
-        <Route render={() => <Redirect to="/404" />} />
+        {/* <Route render={() => <Redirect to="/404" />} /> */}
       </Switch>
     </Suspense>
   </ErrorBoundary>

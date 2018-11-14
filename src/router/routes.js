@@ -2,8 +2,9 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-14 16:12:50
+ * @Last Modified time: 2018-11-14 16:45:17
  */
+import { lazy } from 'react';
 import BasicLayout from '../layouts/BasicLayout';
 import LoginLayout from '../layouts/LoginLayout';
 import Exception403 from '../pages/Exception/403';
@@ -25,17 +26,17 @@ const routes = [
         path: '/test',
         name: '测试test',
         icon: 'dashboard',
-        component: () => import(/* webpackChunkName: 'test' */'../pages/Test'),
+        component: lazy(() => import(/* webpackChunkName: 'test' */'../pages/Test')),
         routes: [
           {
             path: '/test/4031',
             name: '403',
-            component: () => import(/* webpackChunkName: 'Test2' */'../pages/Exception/500'),
+            component: lazy(() => import(/* webpackChunkName: 'Test2' */'../pages/Exception/500')),
           },
           {
             path: '/test/4041',
             name: '404',
-            component: () => import(/* webpackChunkName: 'Test1' */'../pages/Exception/500'),
+            component: lazy(() => import(/* webpackChunkName: 'Test1' */'../pages/Exception/500')),
           },
         ],
       },
@@ -44,7 +45,7 @@ const routes = [
         name: '测试test',
         icon: 'form',
         authority: ['admin'],
-        component: () => import(/* webpackChunkName: 'Demo' */'../pages/Demo'),
+        component: lazy(() => import(/* webpackChunkName: 'Demo' */'../pages/Demo')),
       },
       {
         path: '/403',
