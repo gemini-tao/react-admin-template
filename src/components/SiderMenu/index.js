@@ -2,16 +2,16 @@
  * @Author: lifan
  * @Date: 2018-11-05 15:47:55
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-13 16:20:44
+ * @Last Modified time: 2018-11-14 10:23:40
  */
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
 import PropTypes from 'prop-types';
 import BaseMenu from './BaseMenu';
 
 const { Sider } = Layout;
 
-export default class SiderMenu extends React.Component {
+export default class SiderMenu extends PureComponent {
   static propTypes = {
     collapsed: PropTypes.bool.isRequired,
     onCollapse: PropTypes.func.isRequired,
@@ -27,6 +27,8 @@ export default class SiderMenu extends React.Component {
     const {
       collapsed, onCollapse, menuData, className,
     } = this.props;
+
+    console.log(menuData);
     return (
       <Sider
         trigger={null}
@@ -36,7 +38,11 @@ export default class SiderMenu extends React.Component {
         onCollapse={onCollapse}
         width={256}
       >
-        <BaseMenu menuData={menuData} className={className} inlineCollapsed={collapsed} />
+        <BaseMenu
+          menuData={menuData}
+          className={className}
+          inlineCollapsed={collapsed}
+        />
       </Sider>
     );
   }

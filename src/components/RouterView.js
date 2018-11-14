@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-13 12:06:14
+ * @Last Modified time: 2018-11-14 11:35:30
  */
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
@@ -52,7 +52,12 @@ const RouterView = ({ routes }) => (
     <Suspense fallback={<TopLoading />}>
       <Switch>
         {
-          routes.map(route => <RenderSubRoutes key={route.path} {...route} />)
+          routes.map((route) => {
+            if (route.redirect) {
+              return <Redirect exact key={route.path} from={route.path} to={route.redirect} />;
+            }
+            return <RenderSubRoutes key={route.path} {...route} />;
+          })
         }
         <Route render={() => <Redirect to="/404" />} />
       </Switch>
