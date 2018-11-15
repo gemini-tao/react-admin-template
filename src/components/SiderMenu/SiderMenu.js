@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-05 15:47:55
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 16:52:50
+ * @Last Modified time: 2018-11-15 20:39:50
  */
 import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
@@ -17,15 +17,12 @@ export default class SiderMenu extends PureComponent {
     onCollapse: PropTypes.func.isRequired,
     menuData: PropTypes.array.isRequired,
     className: PropTypes.string.isRequired,
+    location: PropTypes.object.isRequired,
   };
-
-  componentDidMount() {
-
-  }
 
   render() {
     const {
-      collapsed, onCollapse, menuData, className,
+      collapsed, onCollapse, menuData, className, location,
     } = this.props;
 
     return (
@@ -33,7 +30,7 @@ export default class SiderMenu extends PureComponent {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        breakpoint="lg"
+        // breakpoint="lg"
         onCollapse={onCollapse}
         width={256}
         className={className}
@@ -42,6 +39,7 @@ export default class SiderMenu extends PureComponent {
         <BaseMenu
           menuData={menuData}
           className={className}
+          location={location}
           inlineCollapsed={collapsed}
         />
       </Sider>

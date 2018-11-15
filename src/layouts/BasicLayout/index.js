@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 13:57:04
+ * @Last Modified time: 2018-11-15 20:17:55
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -53,11 +53,11 @@ class BasicLayout extends Component {
     isMenuCollapsed: PropTypes.bool.isRequired,
     triggerMenuCollapsed: PropTypes.func.isRequired,
     role: PropTypes.string.isRequired,
+    location: PropTypes.object.isRequired,
   }
 
   state = {
     menuData: formatter(ROUTES[ROUTES.length - 1].routes, this.props.role), // eslint-disable-line
-    isMobile: false,
   }
 
   componentDidMount() {
@@ -69,20 +69,19 @@ class BasicLayout extends Component {
   }
 
   render() {
-    const { routes, isMenuCollapsed, triggerMenuCollapsed } = this.props;
-    const { menuData, isMobile } = this.state;
+    const {
+      routes, isMenuCollapsed, triggerMenuCollapsed, location,
+    } = this.props;
+    const { menuData } = this.state;
     return (
       <Layout>
-        {
-          isMobile ? null : (
-            <SiderMenu
-              className={styles.sider}
-              onCollapse={triggerMenuCollapsed}
-              collapsed={isMenuCollapsed}
-              menuData={menuData}
-            />
-          )
-        }
+        <SiderMenu
+          className={styles.sider}
+          onCollapse={triggerMenuCollapsed}
+          collapsed={isMenuCollapsed}
+          location={location}
+          menuData={menuData}
+        />
         <Layout className={styles.content}>
           <Header className={styles.header}>
             <Icon
@@ -104,6 +103,7 @@ class BasicLayout extends Component {
 const mapStateToProps = state => ({
   isMenuCollapsed: state.settings.isMenuCollapsed,
   role: state.user.role,
+  location: state.router.location,
 });
 
 const mapDispatchToProps = dispatch => ({

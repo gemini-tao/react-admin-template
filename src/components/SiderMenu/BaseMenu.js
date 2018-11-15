@@ -2,10 +2,11 @@
  * @Author: lifan
  * @Date: 2018-11-13 14:47:57
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-14 14:41:36
+ * @Last Modified time: 2018-11-15 20:33:40
  */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Menu, Icon } from 'antd';
 
 const { SubMenu } = Menu;
@@ -17,7 +18,7 @@ export default class BaseMenu extends PureComponent {
   }
 
   componentDidMount() {
-
+    console.log(this.props);
   }
 
   getNavMenuItems = menuData => (
@@ -47,10 +48,12 @@ export default class BaseMenu extends PureComponent {
       } else {
         menuItem = (
           <Menu.Item key={item.path}>
-            {
-              icon ? <Icon type={icon} /> : null
-            }
-            <span>{name}</span>
+            <Link to={item.path}>
+              {
+                icon ? <Icon type={icon} /> : null
+              }
+              <span>{name}</span>
+            </Link>
           </Menu.Item>
         );
       }
@@ -63,7 +66,6 @@ export default class BaseMenu extends PureComponent {
   render() {
     const { menuData, inlineCollapsed } = this.props;
 
-    console.log(menuData);
     return (
       <Menu
         mode="inline"
