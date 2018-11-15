@@ -8,7 +8,7 @@ class Test extends Component {
     return (
       <div>
         test
-        <RouterView routes={this.props.routes} flag />
+        <RouterView routes={this.props.routes} />
       </div>
     )
   }

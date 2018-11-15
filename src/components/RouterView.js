@@ -2,11 +2,12 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-14 17:08:45
+ * @Last Modified time: 2018-11-15 10:43:32
  */
+/* eslint-disable */
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Redirect } from 'react-router-dom';
+import { Switch, Redirect, Route } from 'react-router-dom';
 import TweenOne from 'rc-tween-one';
 import AuthorizedRoute from './AuthorizedRoute';
 import ErrorBoundary from './ErrorBoundary';
@@ -48,7 +49,7 @@ export const RenderSubRoutes = route => (
   />
 );
 
-const RouterView = ({ routes }) => (
+const RouterView = ({ routes, isMain }) => (
   <ErrorBoundary>
     <Suspense fallback={<TopLoading />}>
       <Switch>
@@ -60,7 +61,9 @@ const RouterView = ({ routes }) => (
             return <RenderSubRoutes key={route.path} {...route} />;
           })
         }
-        {/* <Route render={() => <Redirect to="/404" />} /> */}
+        {
+          isMain ? <Route render={() => <Redirect to="/404" />} /> : null
+        }
       </Switch>
     </Suspense>
   </ErrorBoundary>
@@ -68,7 +71,12 @@ const RouterView = ({ routes }) => (
 
 RouterView.propTypes = {
   routes: PropTypes.array.isRequired,
+  isMain: PropTypes.bool,
 };
+
+RouterView.defaultProps = {
+  isMain: false,
+}
 
 RouterView.setAuthority = (authority) => {
   role = authority;

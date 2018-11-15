@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-14 16:42:12
+ * @Last Modified time: 2018-11-15 10:43:38
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -56,7 +56,7 @@ class BasicLayout extends Component {
   }
 
   state = {
-    menuData: formatter(ROUTES[1].routes, this.props.role), // eslint-disable-line
+    menuData: formatter(ROUTES[ROUTES.length - 1].routes, this.props.role), // eslint-disable-line
     isMobile: false,
   }
 
@@ -92,7 +92,7 @@ class BasicLayout extends Component {
             />
           </Header>
           <Content style={{ margin: '24px 16px 0' }}>
-            <RouterView routes={routes} />
+            <RouterView routes={routes} isMain />
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>

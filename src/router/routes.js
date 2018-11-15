@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-14 16:45:17
+ * @Last Modified time: 2018-11-15 10:15:41
  */
 import { lazy } from 'react';
 import BasicLayout from '../layouts/BasicLayout';
@@ -31,11 +31,14 @@ const routes = [
           {
             path: '/test/4031',
             name: '403',
+            authority: ['admin'],
+            // hideInMenu: true,
             component: lazy(() => import(/* webpackChunkName: 'Test2' */'../pages/Exception/500')),
           },
           {
             path: '/test/4041',
             name: '404',
+            // hideInMenu: true,
             component: lazy(() => import(/* webpackChunkName: 'Test1' */'../pages/Exception/500')),
           },
         ],
