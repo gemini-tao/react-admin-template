@@ -1,14 +1,15 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import RouterView from '../../components/RouterView';
-/* eslint-disable */
+
 class Test extends Component {
 
   render() {
     console.log('render');
     return (
       <div>
-        test
-        <RouterView routes={this.props.routes} />
+        gis
+        {/* <RouterView routes={this.props.routes} /> */}
       </div>
     )
   }

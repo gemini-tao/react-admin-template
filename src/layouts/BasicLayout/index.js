@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 10:43:38
+ * @Last Modified time: 2018-11-15 13:57:04
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -101,18 +101,14 @@ class BasicLayout extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    isMenuCollapsed: state.settings.isMenuCollapsed,
-    role: state.user.role,
-  };
-}
+const mapStateToProps = state => ({
+  isMenuCollapsed: state.settings.isMenuCollapsed,
+  role: state.user.role,
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    triggerMenuCollapsed: dispatch.settings.triggerMenuCollapsed,
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  triggerMenuCollapsed: dispatch.settings.triggerMenuCollapsed,
+});
 
 export default connect(
   mapStateToProps,

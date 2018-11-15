@@ -2,21 +2,24 @@
  * @Author: lifan
  * @Date: 2018-11-05 15:47:55
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 08:53:49
+ * @Last Modified time: 2018-11-15 17:01:51
  */
 import React, { PureComponent } from 'react';
-import { Layout } from 'antd';
+import { Drawer } from 'antd';
 import PropTypes from 'prop-types';
-import BaseMenu from './BaseMenu';
+import SiderMenu from './SiderMenu';
 
-const { Sider } = Layout;
-
-export default class SiderMenu extends PureComponent {
+export default class SiderMenuWrapper extends PureComponent {
   static propTypes = {
     collapsed: PropTypes.bool.isRequired,
     onCollapse: PropTypes.func.isRequired,
     menuData: PropTypes.array.isRequired,
     className: PropTypes.string.isRequired,
+    isMobile: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    isMobile: true,
   };
 
   componentDidMount() {
@@ -25,25 +28,27 @@ export default class SiderMenu extends PureComponent {
 
   render() {
     const {
-      collapsed, onCollapse, menuData, className,
+      collapsed, onCollapse, isMobile,
     } = this.props;
 
-    return (
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={collapsed}
-        // breakpoint="lg"
-        onCollapse={onCollapse}
-        width={256}
-        className={className}
+    return isMobile ? (
+      <Drawer
+        visible={!collapsed}
+        placement="left"
+        closable={false}
+        onClose={() => onCollapse(true)}
+        style={{
+          padding: 0,
+          height: '100vh',
+        }}
       >
-        <BaseMenu
-          menuData={menuData}
-          className={className}
-          inlineCollapsed={collapsed}
+        <SiderMenu
+          {...this.props}
+          collapsed={isMobile ? false : collapsed}
         />
-      </Sider>
+      </Drawer>
+    ) : (
+      <SiderMenu {...this.props} />
     );
   }
 }

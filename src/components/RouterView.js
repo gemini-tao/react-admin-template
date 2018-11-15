@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 10:43:32
+ * @Last Modified time: 2018-11-15 13:49:40
  */
 /* eslint-disable */
 import React, { Suspense, lazy } from 'react';
@@ -28,7 +28,7 @@ const animation = [
   },
 ];
 
-export const RenderSubRoutes = route => (
+const RenderSubRoutes = route => (
   <AuthorizedRoute
     path={route.path}
     authority={route.authority}
