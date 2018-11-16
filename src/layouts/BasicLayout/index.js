@@ -3,12 +3,13 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-16 09:39:16
+ * @Last Modified time: 2018-11-16 16:35:14
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Layout, Icon } from 'antd';
+import { enquireScreen, unenquireScreen } from 'enquire-js';
 import RouterView from '../../components/RouterView';
 import SiderMenu from '../../components/SiderMenu';
 import ROUTES from '../../router/routes';
@@ -56,23 +57,34 @@ class BasicLayout extends Component {
     location: PropTypes.object.isRequired,
   }
 
-  state = {
-    menuData: formatter(ROUTES[ROUTES.length - 1].routes, this.props.role), // eslint-disable-line
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuData: formatter(ROUTES[ROUTES.length - 1].routes, props.role),
+      isMobile: false,
+    };
   }
 
   componentDidMount() {
-
+    this.enquireHandler = enquireScreen((mobile) => {
+      const { isMobile } = this.state;
+      if (isMobile !== mobile) {
+        this.setState({
+          isMobile: mobile,
+        });
+      }
+    });
   }
 
   componentWillUnmount() {
-
+    unenquireScreen(this.enquireHandler);
   }
 
   render() {
     const {
       routes, isMenuCollapsed, triggerMenuCollapsed, location,
     } = this.props;
-    const { menuData } = this.state;
+    const { menuData, isMobile } = this.state;
     return (
       <Layout>
         <SiderMenu
@@ -80,6 +92,7 @@ class BasicLayout extends Component {
           onCollapse={triggerMenuCollapsed}
           collapsed={isMenuCollapsed}
           location={location}
+          isMobile={isMobile}
           menuData={menuData}
         />
         <Layout className={styles.content}>

@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-16 10:00:06
+ * @Last Modified time: 2018-11-16 15:32:00
  */
 import { lazy } from 'react';
 import BasicLayout from '../layouts/BasicLayout';
@@ -52,6 +52,13 @@ const routes = [
             name: '已投运泵站',
             hideInMenu: false,
             component: Exception404,
+            routes: [
+              {
+                path: '/project/finish/123',
+                name: '123',
+                component: Exception404,
+              },
+            ],
           },
           {
             path: '/project/notfinish',

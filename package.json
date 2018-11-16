@@ -12,6 +12,7 @@
     "antd": "^3.10.7",
     "classnames": "^2.2.6",
     "connected-react-router": "^5.0.1",
+    "enquire-js": "^0.2.1",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
     "memoize-one": "^4.0.3",

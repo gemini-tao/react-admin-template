@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-05 15:47:55
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 20:39:50
+ * @Last Modified time: 2018-11-16 14:35:50
  */
 import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
@@ -30,7 +30,7 @@ export default class SiderMenu extends PureComponent {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        // breakpoint="lg"
+        breakpoint="lg"
         onCollapse={onCollapse}
         width={256}
         className={className}

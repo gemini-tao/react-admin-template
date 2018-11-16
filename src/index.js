@@ -2,12 +2,12 @@
  * @Author: lifan
  * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-08 13:17:24
+ * @Last Modified time: 2018-11-16 13:21:54
  */
 
 /* eslint-disable import/no-extraneous-dependencies */
 import '@babel/polyfill';
-import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/ie9';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
