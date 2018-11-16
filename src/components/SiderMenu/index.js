@@ -2,23 +2,12 @@
  * @Author: lifan
  * @Date: 2018-11-05 15:47:55
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 21:05:17
+ * @Last Modified time: 2018-11-16 10:24:54
  */
 import React, { PureComponent } from 'react';
 import { Drawer } from 'antd';
 import PropTypes from 'prop-types';
 import SiderMenu from './SiderMenu';
-
-const getFlatMenuKeys = (menuData) => {
-  let keys = [];
-  menuData.forEach((item) => {
-    if (item.children) {
-      keys = keys.concat(getFlatMenuKeys(item.children));
-    }
-    keys.push(item.path);
-  });
-  return keys;
-};
 
 export default class SiderMenuWrapper extends PureComponent {
   static propTypes = {
@@ -32,10 +21,6 @@ export default class SiderMenuWrapper extends PureComponent {
   static defaultProps = {
     isMobile: false,
   };
-
-  componentDidMount() {
-    console.log(getFlatMenuKeys(this.props.menuData)); // eslint-disable-line
-  }
 
   render() {
     const {

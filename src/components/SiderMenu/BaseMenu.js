@@ -2,24 +2,33 @@
  * @Author: lifan
  * @Date: 2018-11-13 14:47:57
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 20:33:40
+ * @Last Modified time: 2018-11-16 11:35:21
  */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import memoizeOne from 'memoize-one';
+import isEqual from 'lodash.isequal';
 import { Menu, Icon } from 'antd';
+import { getFlatMenuKeys, urlToList, getMenuMatches } from '../../utils/routerMenu';
 
 const { SubMenu } = Menu;
 
 export default class BaseMenu extends PureComponent {
   static propTypes = {
     menuData: PropTypes.array.isRequired,
+    location: PropTypes.object.isRequired,
     inlineCollapsed: PropTypes.bool.isRequired,
   }
 
-  componentDidMount() {
-    console.log(this.props);
+  constructor(props) {
+    super(props);
+    this.flatMenuKeys = getFlatMenuKeys(props.menuData);
   }
+
+  getSelectedMenuKeys = memoizeOne(pathname => (
+    urlToList(pathname).map(itemPath => getMenuMatches(this.flatMenuKeys, itemPath).pop())
+  ), isEqual)
 
   getNavMenuItems = menuData => (
     menuData.reduce((arr, item) => {
@@ -64,12 +73,22 @@ export default class BaseMenu extends PureComponent {
   )
 
   render() {
-    const { menuData, inlineCollapsed } = this.props;
+    const { menuData, inlineCollapsed, location: { pathname } } = this.props;
+    const selectMenuKeys = this.getSelectedMenuKeys(pathname);
+
+    // let menuProps = {};
+
+    // if (!selectMenuKeys || selectMenuKeys.length === 0) {
+    //   menuProps.selectedKeys = ['/gis'];
+    // } else {
+
+    // }
 
     return (
       <Menu
         mode="inline"
         theme="dark"
+        selectedKeys={selectMenuKeys}
         inlineCollapsed={inlineCollapsed}
       >
         {

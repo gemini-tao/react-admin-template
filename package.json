@@ -10,6 +10,7 @@
     "@rematch/persist": "^1.1.5",
     "@rematch/select": "^2.0.3",
     "antd": "^3.10.7",
+    "classnames": "^2.2.6",
     "connected-react-router": "^5.0.1",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
