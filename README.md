@@ -27,7 +27,7 @@
   git clone https://github.com/lf7817/react-admin.git
   ```
 
-- vs code安装``editorconfig``、``Path Intellisense``、``Npm Intellisense``、``stylelint``插件
+- vs code安装``editorconfig``、``Path Intellisense``、``Npm Intellisense``、``stylelint``、``eslint``插件
 
 - 安装开发依赖
 
