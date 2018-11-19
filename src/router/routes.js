@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-19 12:35:08
+ * @Last Modified time: 2018-11-19 12:50:18
  */
 import { lazy } from 'react';
 import BasicLayout from '../layouts/BasicLayout';
@@ -181,7 +181,7 @@ const routes = [
         path: '/set',
         name: '系统设置',
         icon: 'setting',
-        component: Exception404,
+        // component: Exception404,
         routes: [
           {
             path: '/set/user-info',
