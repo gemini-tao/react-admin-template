@@ -2,9 +2,9 @@
  * @Author: lifan
  * @Date: 2018-11-04 12:28:25
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-04 12:32:41
+ * @Last Modified time: 2018-11-19 12:38:03
  */
-/* eslint-disable-next-line no-unused-vars */
+/* eslint-disable-next-line */
 import React, { Component } from 'react';
 import NProgress from 'nprogress';
 

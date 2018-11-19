@@ -3,7 +3,7 @@
  * @Author: lifan
  * @Date: 2018-10-31 22:18:49
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-16 16:35:14
+ * @Last Modified time: 2018-11-19 12:37:14
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -104,7 +104,7 @@ class BasicLayout extends Component {
             />
           </Header>
           <Content style={{ margin: '24px 16px 0' }}>
-            <RouterView routes={routes} isMain />
+            <RouterView routes={routes} />
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>

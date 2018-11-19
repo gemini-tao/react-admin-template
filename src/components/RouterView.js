@@ -2,9 +2,8 @@
  * @Author: lifan
  * @Date: 2018-11-01 21:57:48
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-15 13:49:40
+ * @Last Modified time: 2018-11-19 12:37:28
  */
-/* eslint-disable */
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Redirect, Route } from 'react-router-dom';
@@ -49,7 +48,7 @@ const RenderSubRoutes = route => (
   />
 );
 
-const RouterView = ({ routes, isMain }) => (
+const RouterView = ({ routes }) => (
   <ErrorBoundary>
     <Suspense fallback={<TopLoading />}>
       <Switch>
@@ -61,9 +60,7 @@ const RouterView = ({ routes, isMain }) => (
             return <RenderSubRoutes key={route.path} {...route} />;
           })
         }
-        {
-          isMain ? <Route render={() => <Redirect to="/404" />} /> : null
-        }
+        <Route render={() => <Redirect to="/404" />} />
       </Switch>
     </Suspense>
   </ErrorBoundary>
@@ -71,12 +68,7 @@ const RouterView = ({ routes, isMain }) => (
 
 RouterView.propTypes = {
   routes: PropTypes.array.isRequired,
-  isMain: PropTypes.bool,
 };
-
-RouterView.defaultProps = {
-  isMain: false,
-}
 
 RouterView.setAuthority = (authority) => {
   role = authority;
