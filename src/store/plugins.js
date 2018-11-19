@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-07 11:01:00
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-07 14:07:45
+ * @Last Modified time: 2018-11-19 15:56:30
  */
 /* eslint-disable */
 import createRematchPersist from '@rematch/persist';
@@ -23,7 +23,7 @@ const persistPlugin = (() => {
 
   return createRematchPersist({
     key: 'root',
-    whitelist: ['user', 'settings'],
+    whitelist: ['user'],
     throttle: 1000,
     version: 1,
     migrate: createMigrate(migrations, { debug: !isProduction }),
