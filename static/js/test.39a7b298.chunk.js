@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{1264:function(e,n,t){"use strict";t.r(n);var a=t(27),c=t(28),r=t(30),o=t(29),i=t(31),u=t(1),s=t.n(u),d=(t(96),function(e){function n(){return Object(a.a)(this,n),Object(r.a)(this,Object(o.a)(n).apply(this,arguments))}return Object(i.a)(n,e),Object(c.a)(n,[{key:"render",value:function(){return console.log("render"),s.a.createElement("div",null,"gis adada")}}]),n}(u.Component));n.default=d}}]);
+//# sourceMappingURL=test.39a7b298.chunk.js.map
