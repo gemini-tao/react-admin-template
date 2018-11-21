@@ -8,7 +8,7 @@ class Test extends Component {
     console.log('render');
     return (
       <div>
-        gis111111
+        gis2222
         {/* <RouterView routes={this.props.routes} /> */}
       </div>
     )
