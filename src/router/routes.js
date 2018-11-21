@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-01 13:59:24
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-19 12:50:18
+ * @Last Modified time: 2018-11-21 20:27:56
  */
 import { lazy } from 'react';
 import BasicLayout from '../layouts/BasicLayout';
@@ -14,14 +14,17 @@ import Exception500 from '../pages/Exception/500';
 /**
  * @desc 路由表详细配置
  * @param {string} path 路径
+ * @param {bool} exact true-精确匹配, 默认false
+ * @param {bool} strict 默认false
+ * @param {bool} sensitive true-大小写敏感， 默认false
  * @param {string} name 菜单名称, 为空时不在菜单中显示
  * @param {string} icon 菜单图标type，可为空， 目前仅支持antd中Icon
  * @param {bool} hideInMenu 是否在菜单中隐藏， 为空或false时不隐藏
  * @param {string} redirect 重定向路径，可为空
- * @param {string | array} authority 路由权限，当用户权限与用户权限不符时菜单中不显示，可选值为： admin-管理员 kf-客服 user-用户， 为空时默认所有权限都可以访问
+ * @param {string[] | string} authority 路由权限，当用户权限与用户权限不符时菜单中不显示，可选值为： admin-管理员 kf-客服 user-用户， 为空时默认所有权限都可以访问
  * @param {Function Components | Class Components} component 加载组件
  *        异步加载时采用如下写法： lazy(() => import(\/* webpackChunkName: 'test' *\/'../pages/Test'))
- * @param {array} routes 子路由，可为空，配置同上
+ * @param {object[]} routes 子路由，可为空，配置同上
  */
 const routes = [
   {

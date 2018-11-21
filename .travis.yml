@@ -1,0 +1,28 @@
+language: node_js
+
+node_js:
+    - "8"
+
+install:
+    - yarn install
+
+script:
+    - yarn run build
+
+cache:
+    directories:
+        - "node_modules"
+
+deploy:
+    provider: pages
+    skip-cleanup: true
+    local_dir: build
+    github-token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
+    keep-history: true
+    target-branch: $P_BRANCH
+    on:
+        branch: master
+
+branches:
+  only:
+    - master
