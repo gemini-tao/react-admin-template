@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-13 14:47:57
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-16 16:26:43
+ * @Last Modified time: 2018-11-21 20:46:56
  */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
@@ -76,7 +76,6 @@ export default class BaseMenu extends PureComponent {
   )
 
   onOpenChangeHandler = (keys) => {
-    console.log(keys);
     let key = [];
 
     if (keys.length === 0) {

@@ -19,7 +19,7 @@ deploy:
     local_dir: build
     github-token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
     keep-history: true
-    target-branch: $P_BRANCH
+    target-branch: gh-pages
     on:
         branch: master
 
