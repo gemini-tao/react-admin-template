@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{1264:function(e,n,s){"use strict";s.r(n);var t=s(27),c=s(28),r=s(30),a=s(29),o=s(31),i=s(1),u=s.n(i),l=(s(96),function(e){function n(){return Object(t.a)(this,n),Object(r.a)(this,Object(a.a)(n).apply(this,arguments))}return Object(o.a)(n,e),Object(c.a)(n,[{key:"render",value:function(){return console.log("render"),u.a.createElement("div",null,"gis sssssssssssss")}}]),n}(i.Component));n.default=l}}]);
+//# sourceMappingURL=test.e2735142.chunk.js.map
