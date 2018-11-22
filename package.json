@@ -69,7 +69,6 @@
   ],
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.1.2",
-    "antd-theme-webpack-plugin": "^1.1.9",
     "babel-plugin-import": "^1.11.0",
     "customize-cra": "^0.2.5",
     "eslint-config-airbnb": "^17.1.0",

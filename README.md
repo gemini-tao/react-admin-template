@@ -1,5 +1,7 @@
 # MPIS平台
 
+[![Build Status](https://travis-ci.com/lf7817/react-admin-template.svg?branch=master)](https://travis-ci.com/lf7817/react-admin-template)
+
 ## feature
 
 - create-react-app v2.0 without eject
