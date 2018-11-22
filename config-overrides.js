@@ -2,11 +2,11 @@
  * @Author: lifan
  * @Date: 2018-11-05 21:40:19
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-21 22:15:11
+ * @Last Modified time: 2018-11-22 11:31:32
  */
 const {
   override, fixBabelImports, useEslintRc, addWebpackAlias,
-  addDecoratorsLegacy, addBundleVisualizer,
+  addDecoratorsLegacy, addBundleVisualizer, addLessLoader,
 } = require('customize-cra');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const path = require('path');
@@ -28,6 +28,10 @@ const addStylint = () => (config) => {
 };
 
 module.exports = override(
+  addLessLoader({
+    modifyVars: { "@primary-color": "red" },
+    javascriptEnabled: true,
+  }),
   useEslintRc(),
   addStylint(),
   addDecoratorsLegacy(),
@@ -35,7 +39,7 @@ module.exports = override(
   fixBabelImports('antd', {
     libraryName: 'antd',
     libraryDirectory: 'es',
-    style: 'css',
+    style: true,
   }),
   addWebpackAlias({
     '@ant-design/icons/lib/dist$': path.resolve(__dirname, './src/components/icons.js'),
