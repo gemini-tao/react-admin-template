@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-05 21:40:19
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-22 11:31:32
+ * @Last Modified time: 2018-11-22 21:11:38
  */
 const {
   override, fixBabelImports, useEslintRc, addWebpackAlias,
@@ -29,7 +29,9 @@ const addStylint = () => (config) => {
 
 module.exports = override(
   addLessLoader({
-    modifyVars: { "@primary-color": "red" },
+    modifyVars: {
+      '@primary-color': '#FA541c',
+    },
     javascriptEnabled: true,
   }),
   useEslintRc(),

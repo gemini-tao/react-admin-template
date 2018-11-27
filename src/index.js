@@ -2,9 +2,8 @@
  * @Author: lifan
  * @Date: 2018-10-26 14:51:40
  * @Last Modified by: lifan
- * @Last Modified time: 2018-11-21 23:01:18
+ * @Last Modified time: 2018-11-22 21:04:59
  */
-
 /* eslint-disable import/no-extraneous-dependencies */
 import '@babel/polyfill';
 import 'react-app-polyfill/ie9';
@@ -19,6 +18,7 @@ import RootRouter from './router';
 import * as serviceWorker from './utils/serviceWorker';
 import 'normalize.css';
 import './assets/scss/index.scss';
+
 
 const persistor = getPersistor();
 
