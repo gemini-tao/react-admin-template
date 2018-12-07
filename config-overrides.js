@@ -2,13 +2,14 @@
  * @Author: lifan
  * @Date: 2018-11-05 21:40:19
  * @Last Modified by: lifan
- * @Last Modified time: 2018-12-06 10:14:04
+ * @Last Modified time: 2018-12-07 16:56:20
  */
 const {
   override, fixBabelImports, useEslintRc, addWebpackAlias,
   addDecoratorsLegacy, addBundleVisualizer, addLessLoader,
 } = require('customize-cra');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 const path = require('path');
 
 const addStylint = () => (config) => {
@@ -27,6 +28,24 @@ const addStylint = () => (config) => {
   return config;
 };
 
+
+const injectManifest = () => (config) => {
+  const plugins = config.plugins.filter(p => p.constructor.name !== 'GenerateSW');
+
+  plugins.push(
+    new InjectManifest({
+      swSrc: './src/service-worker.js',
+      exclude: [/\.map$/, /asset-manifest\.json$/],
+      importWorkboxFrom: 'cdn',
+    }),
+  );
+
+  return {
+    ...config,
+    plugins,
+  };
+};
+
 module.exports = override(
   addLessLoader({
     modifyVars: {
@@ -43,6 +62,7 @@ module.exports = override(
     libraryDirectory: 'es',
     style: true,
   }),
+  injectManifest(),
   addWebpackAlias({
     '@ant-design/icons/lib/dist$': path.resolve(__dirname, './src/components/icons.js'),
     '@': path.resolve(__dirname, './src'),
