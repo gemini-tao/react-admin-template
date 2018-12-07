@@ -102,11 +102,13 @@ function registerValidSW(swUrl, config) {
       console.error('Error during service worker registration:', error);
     });
 
+  let refreshing = false
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     console.log('controllerchange');
-    if (!isFirst) {
+    if (!isFirst && !refreshing) {
       window.location.reload();
       isFirst = true;
+      refreshing = true;
     }
   });
 }
