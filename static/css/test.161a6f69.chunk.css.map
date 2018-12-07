@@ -1,0 +1,1 @@
+{"version":3,"sources":["css ./node_modules/css-loader??ref--6-oneOf-7-1!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js??ref--6-oneOf-7-3!./src/pages/Test/style.less"],"names":[],"mappings":"AAAA,KACA,SAAA,CACA","file":"test.161a6f69.chunk.css","sourcesContent":[".aaa {\n  color: red;\n}\n"]}
