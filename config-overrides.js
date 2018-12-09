@@ -2,7 +2,7 @@
  * @Author: lifan
  * @Date: 2018-11-05 21:40:19
  * @Last Modified by: lifan
- * @Last Modified time: 2018-12-07 16:56:20
+ * @Last Modified time: 2018-12-09 15:16:24
  */
 const {
   override, fixBabelImports, useEslintRc, addWebpackAlias,
@@ -34,7 +34,7 @@ const injectManifest = () => (config) => {
 
   plugins.push(
     new InjectManifest({
-      swSrc: './src/service-worker.js',
+      swSrc: './public/service-worker.js',
       exclude: [/\.map$/, /asset-manifest\.json$/],
       importWorkboxFrom: 'cdn',
     }),
