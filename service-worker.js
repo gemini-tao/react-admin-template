@@ -1,4 +1,4 @@
-importScripts("./precache-manifest.d53af4cc823ce47d6b00ad189361c4e3.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("./precache-manifest.b2ecda46e74a5ef7f81444a628265b08.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 /* eslint-disable */
 workbox.clientsClaim();
@@ -20,25 +20,5 @@ self.addEventListener('message', event => {
   if (event.data === 'skipWaiting') {
     self.skipWaiting();
   }
-});
-
-self.addEventListener('push', function(event) {
-  var title = 'Yay a message.';
-  var body = 'We have received a push message.';
-  var icon = './assets/images/logo@192x192.png';
-  var tag = 'simple-push-demo-notification-tag';
-  var data = {
-    doge: {
-        wow: 'such amaze notification data'
-    }
-  };
-  event.waitUntil(
-    self.registration.showNotification(title, {
-      body: body,
-      icon: icon,
-      tag: tag,
-      data: data
-    })
-  );
 });
 
